@@ -646,7 +646,7 @@ const Home = (props) => {
                             <div className="relative mx-auto my-auto">
                                 <FirstModal />
                                 <div className=" lg:text-center text-center">
-                                    <button className=" text-xl text-white bg-[#ed653b] h-[50px] font-medium w-[302px] rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300  " onClick={() => {
+                                    <button className=" text-xl text-white bg-[#ed653b] h-[50px] font-medium w-[302px] rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300 mb-10 " onClick={() => {
                                         setShow(false);
                                         setIsOpen(true);
                                         setpermission(true);
