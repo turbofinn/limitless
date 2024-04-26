@@ -82,7 +82,9 @@ const Modal = () => {
                 if (res.data.code === 1001) {
                     // Navigate('/https://limitlessliterature.com/');
                     setLoader(false);
-                    window.location.replace('https://limitlessliterature.com/');
+                    // window.location.replace('https://limitlessliterature.com/');
+                    window.location.href = '/success';
+
                 }
             });
             // console.log('Response:', response.data);
