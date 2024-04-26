@@ -5,6 +5,7 @@ import { LineWave, TailSpin } from 'react-loader-spinner'
 // import { useNavigate } from "react-router-dom";
 import moment from "moment";
 import axios from 'axios';
+
 const Modal = (props) => {
     // const Navigate=useNavigate();
     const [firstName, setFirstName] = useState('');
@@ -15,8 +16,6 @@ const Modal = (props) => {
     const [loader, setLoader] = useState(false);
     const [validationError, setvalidationError] = useState(false);
 
-    // useEffect(()=>{
-    // },[]);
     const [values, setValues] = useState({
         name: '',
         phoneNumber: '',
@@ -38,6 +37,25 @@ const Modal = (props) => {
         }
     };
 
+    function generateRandomString(length) {
+        const vowels = 'aeiou';
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+        let randomString = '';
+        for (let i = 0; i < length; i++) {
+            let randomChar = '';
+            if (i === 2 || i === 8 || i === length - 2) {
+                randomChar = 't'; // Ensure 't' at specific positions
+            } else if (i === length - 1) {
+                randomChar = vowels[Math.floor(Math.random() * vowels.length)]; // Last digit is a vowel
+            } else {
+                randomChar = characters[Math.floor(Math.random() * characters.length)];
+            }
+            randomString += randomChar;
+        }
+        return randomString;
+    }
+
     const submitHandler = async (e) => {
 
         setLoader(true);
@@ -58,13 +76,10 @@ const Modal = (props) => {
             }).then((res) => {
                 console.log("res", res);
                 if (res.data.code === 1001) {
-                    // Navigate('/https://limitlessliterature.com/');
                     setLoader(false);
-                    // window.location.replace('https://limitlessliterature.com/');
-                    // props.setisAPIsuccess(true);
-                    localStorage.setItem("deviceID",true);
-                    
-
+                    window.location.href = '/success';
+                    const randomString = [...Array(36)].map(() => Math.random().toString(36)[2]).join('');
+                    localStorage.setItem("DeviceID", generateRandomString(36))
                 }
             });
             // console.log('Response:', response.data);
@@ -76,7 +91,6 @@ const Modal = (props) => {
         } catch (error) {
             console.error('Error:', error.message);
         }
-        window.location.href = '/success';
     };
 
     return (
