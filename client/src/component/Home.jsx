@@ -44,14 +44,18 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 const Home = (props) => {
     // const [count, setCount] = useState(0);
+
     const [isOpen, setIsOpen] = useState(false);
     const [show, setShow] = useState(false);
+    const [permission, setpermission] = useState(false);
     useEffect(() => {
-        const timeoutId = setTimeout(() => {
-            setShow(true);
-        }, 15000);
-        return () => clearTimeout(timeoutId);
-    }, []);
+            const timeoutId = setTimeout(() => {
+                if(!permission){
+                    setShow(true);
+                }
+            }, 15000);
+            return () => clearTimeout(timeoutId);
+    }, [permission]);
     const handleClick = (height) => {
         const scrollHeight = height;
         window.scrollTo({
@@ -148,6 +152,7 @@ const Home = (props) => {
                             <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-[302px] rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300 " onClick={() => {
                                 setIsOpen(true);
                                 handleClick();
+                                setpermission(true);
                             }}>Enroll now for the courses
                             </button>
                         </div>
@@ -193,7 +198,8 @@ const Home = (props) => {
                                 <h3 className=" text-lg font-semibold">Uncertain directional confusion</h3>
                             </div>
                             <div className=" lg:text-center mt-8 text-center">
-                                <button className=" text-xl text-white bg-[#ed653b] h-[52px] font-medium w-[302px] rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300  " onClick={() => { setIsOpen(true) }}>Enroll now for the courses</button>
+                                <button className=" text-xl text-white bg-[#ed653b] h-[52px] font-medium w-[302px] rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300  " onClick={() => { setIsOpen(true);
+                                setpermission(true); }}>Enroll now for the courses</button>
                             </div>
                         </div>
                     </div>
@@ -297,7 +303,8 @@ const Home = (props) => {
                             <h3 className=" text-[#FB0A0A] font-bold"><span>{reverseTime}</span>  Hours Left at this price</h3>
                         </div>
                         <div className=" text-center mt-5">
-                            <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-[302px] rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300  " onClick={() => { setIsOpen(true) }}>Enroll now for the courses</button>
+                            <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-[302px] rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300  " onClick={() => { setIsOpen(true) ;
+                            setpermission(true);}}>Enroll now for the courses</button>
                         </div>
                     </div>
 
@@ -349,7 +356,8 @@ const Home = (props) => {
                             <h3 className=" text-[#FB0A0A] font-bold"><span>{reverseTime}</span>  Hours Left at this price</h3>
                         </div>
                         <div className=" text-center mt-5">
-                            <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-[302px] rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300 " onClick={() => { setIsOpen(true) }}>Enroll now for the courses</button>
+                            <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-[302px] rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300 " onClick={() => { setIsOpen(true);
+                            setpermission(true); }}>Enroll now for the courses</button>
                         </div>
                     </div>
 
@@ -392,7 +400,8 @@ const Home = (props) => {
                             <h3 className=" text-[#FB0A0A] font-bold"><span>{reverseTime}</span>  Hours Left at this price</h3>
                         </div>
                         <div className=" text-center">
-                            <button className="mt-6 text-xl text-white bg-[#ed653b] h-12 font-medium w-[302px] rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300 " onClick={() => { setIsOpen(true) }}>Enroll now for the courses</button>
+                            <button className="mt-6 text-xl text-white bg-[#ed653b] h-12 font-medium w-[302px] rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300 " onClick={() => { setIsOpen(true);
+                            setpermission(true); }}>Enroll now for the courses</button>
                         </div>
                     </div>
 
@@ -440,7 +449,7 @@ const Home = (props) => {
                             <h3 className=" text-[#FB0A0A] font-bold"><span>{reverseTime}</span>  Hours Left at this price</h3>
                         </div>
                         <div className=" text-center mt-5">
-                            <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-[302px] rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300  " onClick={() => { setIsOpen(true) }}>Enroll now for the courses</button>
+                            <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-[302px] rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300  " onClick={() => { setIsOpen(true); setpermission(true); }}>Enroll now for the courses</button>
                         </div>
                     </div>
                 </div>
@@ -496,7 +505,7 @@ const Home = (props) => {
                         <h2 className=" md:text-lg font-base text-justify  mt-5">If you commit to our books & courses for a couple of months, you will see a drastic improvement in your preparation. I’ve worked very hard to organize the course in the best possible way. </h2>
                         <h2 className=" md:text-lg  text-justify font-base  mt-5">The study material works 100%, only if you let it work. All you just have to do is spend a few hours every day reading the material. If any doubt pops up, I’m just a call away. Call me and I will let you in the right direction.</h2>
                         <div className=" text-center lg:text-start">
-                            <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-[302px] rounded-md shadow-2xl mt-5 hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300 " onClick={() => { setIsOpen(true) }}>Enroll now for the courses</button>
+                            <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-[302px] rounded-md shadow-2xl mt-5 hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300 " onClick={() => { setIsOpen(true); setpermission(true); }}>Enroll now for the courses</button>
                         </div>
                     </div>
                 </div>
@@ -563,7 +572,8 @@ const Home = (props) => {
                     </div>
                 </div>
                 <div className=" text-center ">
-                    <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-[302px] rounded-md shadow-2xl mt-10 hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300 " onClick={() => { setIsOpen(true) }}>Enroll now for the courses</button>
+                    <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-[302px] rounded-md shadow-2xl mt-10 hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300 " onClick={() => { setIsOpen(true);
+                    setpermission(true); }}>Enroll now for the courses</button>
                 </div>
                 <h2 className=" md:text-lg font-semibold mt-4 text-center">This study material includes everything you have ever desired</h2>
             </div>
@@ -629,6 +639,7 @@ const Home = (props) => {
                                     <button className=" text-xl text-white bg-[#ed653b] h-[50px] font-medium w-[302px] rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300  " onClick={() => {
                                         setShow(false);
                                         setIsOpen(true);
+                                        setpermission(true);
                                     }}>Enroll now for the courses</button>
                                 </div>
                             </div>
