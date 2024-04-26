@@ -145,10 +145,10 @@ const Home = () => {
                             </div>
                         </div>
                         <div className=" text-center lg:text-start mt-10">
-                            <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-48 rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300 " onClick={() => {
+                            <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-[302px] rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300 " onClick={() => {
                                 setIsOpen(true);
                                 handleClick();
-                            }}>ENROLL NOW
+                            }}>Enroll now for the courses
                             </button>
                         </div>
                     </div>
@@ -193,7 +193,7 @@ const Home = () => {
                                 <h3 className=" text-lg font-semibold">Uncertain directional confusion</h3>
                             </div>
                             <div className=" lg:text-center mt-8 text-center">
-                                <button className=" text-xl text-white bg-[#ed653b] h-[52px] font-medium w-52 rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300  " onClick={() => { setIsOpen(true) }}>ENROLL NOW</button>
+                                <button className=" text-xl text-white bg-[#ed653b] h-[52px] font-medium w-[302px] rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300  " onClick={() => { setIsOpen(true) }}></button>
                             </div>
                         </div>
                     </div>
@@ -297,7 +297,7 @@ const Home = () => {
                             <h3 className=" text-[#FB0A0A] font-bold"><span>{reverseTime}</span>  Hours Left at this price</h3>
                         </div>
                         <div className=" text-center mt-5">
-                            <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-64 rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300  " onClick={() => { setIsOpen(true) }}>ENROLL NOW</button>
+                            <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-[302px] rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300  " onClick={() => { setIsOpen(true) }}>Enroll now for the courses</button>
                         </div>
                     </div>
 
@@ -349,7 +349,7 @@ const Home = () => {
                             <h3 className=" text-[#FB0A0A] font-bold"><span>{reverseTime}</span>  Hours Left at this price</h3>
                         </div>
                         <div className=" text-center mt-5">
-                            <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-64 rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300 " onClick={() => { setIsOpen(true) }}>ENROLL NOW</button>
+                            <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-[302px] rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300 " onClick={() => { setIsOpen(true) }}>Enroll now for the courses</button>
                         </div>
                     </div>
 
@@ -392,7 +392,7 @@ const Home = () => {
                             <h3 className=" text-[#FB0A0A] font-bold"><span>{reverseTime}</span>  Hours Left at this price</h3>
                         </div>
                         <div className=" text-center">
-                            <button className="mt-6 text-xl text-white bg-[#ed653b] h-12 font-medium  w-64 rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300 " onClick={() => { setIsOpen(true) }}>ENROLL NOW</button>
+                            <button className="mt-6 text-xl text-white bg-[#ed653b] h-12 font-medium w-[302px] rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300 " onClick={() => { setIsOpen(true) }}>Enroll now for the courses</button>
                         </div>
                     </div>
 
@@ -440,7 +440,7 @@ const Home = () => {
                             <h3 className=" text-[#FB0A0A] font-bold"><span>{reverseTime}</span>  Hours Left at this price</h3>
                         </div>
                         <div className=" text-center mt-5">
-                            <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-64 rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300  " onClick={() => { setIsOpen(true) }}>ENROLL NOW</button>
+                            <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-[302px] rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300  " onClick={() => { setIsOpen(true) }}>Enroll now for the courses</button>
                         </div>
                     </div>
                 </div>
@@ -496,7 +496,7 @@ const Home = () => {
                         <h2 className=" md:text-lg font-base text-justify  mt-5">If you commit to our books & courses for a couple of months, you will see a drastic improvement in your preparation. I’ve worked very hard to organize the course in the best possible way. </h2>
                         <h2 className=" md:text-lg  text-justify font-base  mt-5">The study material works 100%, only if you let it work. All you just have to do is spend a few hours every day reading the material. If any doubt pops up, I’m just a call away. Call me and I will let you in the right direction.</h2>
                         <div className=" text-center lg:text-start">
-                            <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-64 rounded-md shadow-2xl mt-5 hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300 " onClick={() => { setIsOpen(true) }}>ENROLL NOW</button>
+                            <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-[302px] rounded-md shadow-2xl mt-5 hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300 " onClick={() => { setIsOpen(true) }}>Enroll now for the courses</button>
                         </div>
                     </div>
                 </div>
@@ -520,7 +520,7 @@ const Home = () => {
                             <li>and above all guidance to stay in the right direction.</li>
                         </ul>
                         <div className=" text-center lg:text-end ">
-                            <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-64 rounded-md shadow-2xl mt-5 " onClick={() => { setIsOpen(true) }}>ENROLL NOW</button>
+                            <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-64 rounded-md shadow-2xl mt-5 " onClick={() => { setIsOpen(true) }}>Enroll now for the courses</button>
                         </div>
                     </div>
                     <div className="col-span-4">
@@ -563,7 +563,7 @@ const Home = () => {
                     </div>
                 </div>
                 <div className=" text-center ">
-                    <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-64 rounded-md shadow-2xl mt-10 hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300 " onClick={() => { setIsOpen(true) }}>ENROLL NOW</button>
+                    <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-[302px] rounded-md shadow-2xl mt-10 hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300 " onClick={() => { setIsOpen(true) }}>Enroll now for the courses</button>
                 </div>
                 <h2 className=" md:text-lg font-semibold mt-4 text-center">This study material includes everything you have ever desired</h2>
             </div>
@@ -611,7 +611,7 @@ const Home = () => {
                         <div className=" p-8 text-white text-lg ">
                             <h2 className=" text-center text-4xl font-bold leading-normal">5 hours left, Hurry up before its too late!</h2>
                             <div className=" lg:text-center mt-8 text-center">
-                                <button className=" text-xl text-white bg-[#ed653b] h-[50px] font-medium w-48 rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300  ">ENROLL NOW</button>
+                                <button className=" text-xl text-white bg-[#ed653b] h-[50px] font-medium w-48 rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300  ">Enroll now for the courses</button>
                             </div>
                         </div>
                     </div>
@@ -626,13 +626,13 @@ const Home = () => {
                             <div className="relative mx-auto my-auto">
                                 <FirstModal />
                                 <div className=" lg:text-center text-center">
-                                    <button className=" text-xl text-white bg-[#ed653b] h-[50px] font-medium w-56 rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300  " onClick={()=>{
+                                    <button className=" text-xl text-white bg-[#ed653b] h-[50px] font-medium w-[302px] rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300  " onClick={() => {
                                         setShow(false);
                                         setIsOpen(true);
-                                    }}>ENROLL NOW</button>
+                                    }}>Enroll now for the courses</button>
                                 </div>
                             </div>
-                            <button className=" absolute top-0 right-0 m-3 text-gray-500 hover:text-gray-900 " onClick={()=>{setShow(false)}}>
+                            <button className=" absolute top-0 right-0 m-3 text-gray-500 hover:text-gray-900 " onClick={() => { setShow(false) }}>
                                 <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
                                 </svg>
