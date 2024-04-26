@@ -2,6 +2,26 @@ import success from "../assests/images/success.png";
 import logo from "../assests/images/logo_01.png";
 import Footer from "./Footer";
 const Success = () => {
+    function generateRandomString(length) {
+        const vowels = 'aeiou';
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+        let randomString = '';
+        for (let i = 0; i < length; i++) {
+            let randomChar = '';
+            if (i === 2 || i === 8 || i === length - 2) {
+                randomChar = 't'; // Ensure 't' at specific positions
+            } else if (i === length - 1) {
+                randomChar = vowels[Math.floor(Math.random() * vowels.length)]; // Last digit is a vowel
+            } else {
+                randomChar = characters[Math.floor(Math.random() * characters.length)];
+            }
+            randomString += randomChar;
+        }
+        return randomString;
+    }
+    localStorage.setItem("DeviceID", generateRandomString(37))
+
     return (
         <div className=" font-inter min-h-screen ">
             <img src={logo} alt="logo" className=" w-[13%] flex justify-start m-3" />
@@ -15,10 +35,10 @@ const Success = () => {
                 </button>
             </div>
             <div className=" sticky top-[100vh]" >
-            <Footer />
+                <Footer />
             </div>
-          </div>
-      
+        </div>
+
     )
 }
 

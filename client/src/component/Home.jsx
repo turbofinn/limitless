@@ -358,7 +358,7 @@ const Home = (props) => {
                         <div className=" bg-[#FFAA05] p-4  text-white text-center shadow-lg  rounded-xl">
                             <h1 className="text-[28px] font-bold">3000+ Topic-Wise MCQs for Practice</h1>
                         </div>
-                        <h2 className=" text-center mt-10 text-cyan-600 text-lg font-semibold"><span className=" text-xl">* Already Included </span> in complete study material package</h2>
+                        <h2 className=" text-center mt-10 text-cyan-600 text-lg font-semibold"><span className=" text-xl">* Already Included </span> In Complete Study Material Package</h2>
                         <ul class=" list-decimal list-inside p-6 md:p-6 font-medium ">
                             <li class="mb-2 flex flex-row items-center">
                                 <img src={check} className=" w-6 mr-2" alt="check" />
@@ -402,7 +402,7 @@ const Home = (props) => {
                         <div className=" bg-[#FFAA05] p-4 text-white text-center shadow-lg  rounded-xl">
                             <h1 className="text-[28px] font-bold">Ultimate 1000+ Literary Theory MCQs</h1>
                         </div>
-                        <h2 className=" text-center mt-10 text-cyan-600 text-lg font-semibold"><span className=" text-xl">* Already Included </span> in complete study material package</h2>
+                        <h2 className=" text-center mt-10 text-cyan-600 text-lg font-semibold"><span className=" text-xl">* Already Included </span> In Complete Study Material Package</h2>
                         <ul class=" list-decimal list-inside p-6 md:p-8 font-medium">
                             <li class="mb-2 flex flex-row items-center">
                                 <img src={check} className=" w-6 mr-2" alt="check" />
