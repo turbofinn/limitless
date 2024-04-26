@@ -42,7 +42,7 @@ import { useState, useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-const Home = () => {
+const Home = (props) => {
     // const [count, setCount] = useState(0);
     const [isOpen, setIsOpen] = useState(false);
     const [show, setShow] = useState(false);
@@ -193,7 +193,7 @@ const Home = () => {
                                 <h3 className=" text-lg font-semibold">Uncertain directional confusion</h3>
                             </div>
                             <div className=" lg:text-center mt-8 text-center">
-                                <button className=" text-xl text-white bg-[#ed653b] h-[52px] font-medium w-[302px] rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300  " onClick={() => { setIsOpen(true) }}></button>
+                                <button className=" text-xl text-white bg-[#ed653b] h-[52px] font-medium w-[302px] rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300  " onClick={() => { setIsOpen(true) }}>Enroll now for the courses</button>
                             </div>
                         </div>
                     </div>
@@ -591,7 +591,7 @@ const Home = () => {
                 <div className="fixed inset-0  z-[99999] flex items-center justify-center backdrop-blur-sm animate-slideFromRight">
                     <div className={`fixed inset-0 bg-white flex lg:max-w-[44%] lg:max-h-[90%] my-auto mx-auto items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none shadow-2xl  transition-all ease-linear duration-400 ${isOpen ? 'opacity-100' : 'opacity-0'}`}>
                         <div className="relative mx-auto  ">
-                            <Modal />
+                            <Modal {...props} />
                         </div>
                         <button className=" absolute top-0 right-0 m-3 text-gray-500 hover:text-gray-900 " onClick={() => { setIsOpen(false) }} >
                             <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">

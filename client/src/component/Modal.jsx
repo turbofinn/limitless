@@ -5,7 +5,7 @@ import { LineWave, TailSpin } from 'react-loader-spinner'
 // import { useNavigate } from "react-router-dom";
 import moment from "moment";
 import axios from 'axios';
-const Modal = () => {
+const Modal = (props) => {
     // const Navigate=useNavigate();
     const [firstName, setFirstName] = useState('');
     const [Email, setEmail] = useState('');
@@ -61,7 +61,9 @@ const Modal = () => {
                     // Navigate('/https://limitlessliterature.com/');
                     setLoader(false);
                     // window.location.replace('https://limitlessliterature.com/');
-                    window.location.href = '/success';
+                    // props.setisAPIsuccess(true);
+                    localStorage.setItem("deviceID",true);
+                    
 
                 }
             });
@@ -74,6 +76,7 @@ const Modal = () => {
         } catch (error) {
             console.error('Error:', error.message);
         }
+        window.location.href = '/success';
     };
 
     return (
