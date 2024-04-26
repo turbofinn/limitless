@@ -13,6 +13,7 @@ const Modal = () => {
     const [msg, setMsg] = useState('');
     const [packages, setPackage] = useState('');
     const [loader, setLoader] = useState(false);
+    const [validationError, setvalidationError] = useState(false);
 
     // useEffect(()=>{
     // },[]);
@@ -29,37 +30,14 @@ const Modal = () => {
             [event.target.name]: event.target.value,
         });
     };
-    const validate = (values) => {
-        let errors = {};
-
-        if (!values.name) {
-            errors.name = 'Name is required';
+    const validate = () => {
+        if ((firstName.length === 0) || (!(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(Email))) || (!(/^\d{10}$/.test(Phone))) || packages.length === 0 || msg.length === 0) {
+            return true;
+        } else {
+            return false;
         }
-
-        if (!values.phoneNumber) {
-            errors.phoneNumber = 'Phone number is required';
-        } else if (!(/^\d{10}$/.test(values.phoneNumber))) {
-            errors.phoneNumber = 'Phone number is invalid';
-        }
-
-        if (!values.email) {
-            errors.email = 'Email address is required';
-        } else if (!(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email))) {
-            errors.email = 'Please enter valid Email';
-        }
-        if ((values.selectOption === 'Select your preferred package')) {
-            errors.selectOption = 'Please select an option';
-        }
-
-        // if (Object.keys(errors).length === 0) { // Check if errors object is empty
-        //     submitHandler();
-        // }
-        return errors;
     };
-    const handleSubmit = () => {
-        // event.preventDefault();
-        setErrors(validate(values));
-    };
+
     const submitHandler = async (e) => {
 
         setLoader(true);
@@ -70,9 +48,9 @@ const Modal = () => {
         // e.preventDefault();
         setErrors(validate(values));
         try {
-            const response = await axios.post('http://localhost:5000/submit-form', {
+            const response = await axios.post('https://backend.limitlessliterature.com/submit-form', {
                 Last_Name: firstName.split(' ')[1] ? firstName.split(' ')[1] : firstName.split(' ')[0],
-                First_Name: firstName.split(' ')[1] ?firstName.split(' ')[0] :'',
+                First_Name: firstName.split(' ')[1] ? firstName.split(' ')[0] : '',
                 Email: Email,
                 Phone: Phone,
                 Description: msg,
@@ -119,6 +97,7 @@ const Modal = () => {
                             (e) => {
                                 setFirstName(e.target.value);
                                 handleChange(e);
+                                setvalidationError(false)
                             }} value={firstName} />
                     </div>
                     {errors.name && <p>{errors.name}</p>}
@@ -133,6 +112,7 @@ const Modal = () => {
                         <input type="text" id="email-address-icon" class="bg-gray-50 border-2 border-[#ed653b] text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  text-gray-700 placeholder-gray-500 ps-10 p-3 " name="email" placeholder="E-mail" onChange={(e) => {
                             setEmail(e.target.value);
                             handleChange(e);
+                            setvalidationError(false)
                         }} value={Email} />
                     </div>
                     {errors.email && <p>{errors.email}</p>}
@@ -144,6 +124,7 @@ const Modal = () => {
                         <input type="text" id="email-address-icon" class="bg-gray-50 border-2 border-[#ed653b] text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-3 placeholder-gray-500 " placeholder="Phone" name="phoneNumber" onChange={(e) => {
                             setPhone(e.target.value);
                             handleChange(e)
+                            setvalidationError(false)
                         }} value={Phone} />
                     </div>
                     {errors.phoneNumber && <p>{errors.phoneNumber}</p>}
@@ -152,6 +133,7 @@ const Modal = () => {
                         (e) => {
                             setPackage(e.target.value);
                             handleChange(e)
+                            setvalidationError(false)
                         }} name="selectOption" value={packages} >
 
                         <option className=" text-indigo-600 font-medium ">Select your preferred package</option>
@@ -162,12 +144,22 @@ const Modal = () => {
                     </select>
                     {errors.selectOption && <p>{errors.selectOption}</p>}
                     <div class="relative mt-3 ">
-                        <textarea type="text" id="email-address-icon" class="bg-gray-50 border-2 border-[#ed653b] text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 h-[150px] lg:h-[110px] placeholder-gray-500 " placeholder="Ask your query here..." onChange={(e) => { setMsg(e.target.value) }} value={msg} />
+                        <textarea type="text" id="email-address-icon" class="bg-gray-50 border-2 border-[#ed653b] text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 h-[150px] lg:h-[110px] placeholder-gray-500 " placeholder="Ask your query here..." onChange={(e) => {
+                            setMsg(e.target.value)
+                            setvalidationError(false)
+                        }} value={msg} />
                     </div>
                 </form>
+                {validationError && <p style={{ fontSize: "0.8rem", marginTop: "2%", color: "red", textAlign: "center" }}>Please enter valid details *</p>}
                 <div className=" text-center mt-6 lg:mt-8">
                     <a className=" px-8 py-3 bg-[#ed653b] rounded-md text-lg hover:cursor-pointer  text-white"
-                        onClick={submitHandler}
+                        onClick={() => {
+                            if (validate()) {
+                                setvalidationError(true)
+                            } else {
+                                submitHandler()
+                            }
+                        }}
                     // onClick={handleSubmit}
                     >submit</a>
 
