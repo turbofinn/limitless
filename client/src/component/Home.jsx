@@ -216,7 +216,7 @@ const Home = (props) => {
                             <img src={student} alt="student" className="mx-auto w-[60%]" />
                         </div>
 
-                        <CountingAnimation targetCount={5165} />
+                        <CountingAnimation targetCount={5165} value="student"/>
                         <h1 className=" text-gray-900 text-lg font-medium mt-2">Enrolled Students</h1>
                     </div>
                     <div className=" mx-auto text-center">
@@ -233,7 +233,7 @@ const Home = (props) => {
                         </div>
 
                         <CountingAnimation targetCount={3} value="subscriber" />
-                        <h1 className=" text-gray-900 text-lg font-medium mt-2">YouTube Subscribers</h1>
+                        <h1 className=" text-gray-900 text-lg font-medium mt-2">Video View’s</h1>
                     </div>
                     <div className=" mx-auto text-center">
                         <div className=" rounded-full h-[120px] w-[120px] flex justify-center items-center bg-[#EAEAEA] border-b-2 border-gray-200 shadow-2xl transition-all ease-linear duration-400 hover:scale-105 mx-auto">
@@ -241,7 +241,7 @@ const Home = (props) => {
                         </div>
 
                         <CountingAnimation targetCount={50} value="view" />
-                        <h1 className=" text-gray-900 text-lg font-medium mt-2">Video View’s</h1>
+                        <h1 className=" text-gray-900 text-lg font-medium mt-2">YouTube Subscribers</h1>
                     </div>
 
                 </div>

@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 const CountingAnimation = ({ targetCount, value }) =>{
     const [count, setCount] = useState(0);
-
+    useEffect(()=>{
+      if(value === "student") setCount(4000);
+      if(value === "cleared") setCount(200);
+    },[]);
     useEffect(() => {
       let animationInterval;
       let timer = 1;
