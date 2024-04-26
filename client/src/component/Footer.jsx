@@ -31,9 +31,9 @@ const Footer = (props) => {
             </div>
             <hr className=" mt-10"></hr>
 
-            <div className=" grid lg:grid-cols-2 mt-8 lg:mt-16 items-center text-sm lg:text-base text-pretty ">
+            <div className=" grid lg:grid-cols-2 mt-8 lg:mt-12 items-center text-sm lg:text-base text-pretty ">
                 <div className="">
-                    <h2>© 2024 Turbofinn AI (Whatsapp: +91-8960880615)</h2>
+                    {/* <h2>© 2024 Turbofinn AI (Whatsapp: +91-8960880615)</h2> */}
                     <h2>Designed by Turbofinn AI</h2>
                 </div>
                 <div className=" lg:text-end">

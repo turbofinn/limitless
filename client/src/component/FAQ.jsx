@@ -8,7 +8,7 @@ const FAQItem = ({ question, answer }) => {
         <div className="border-b border-gray-200 font-inter">
             <button className="w-full px-6 py-3 text-left " onClick={() => setIsOpen(!isOpen)}>
                 <div className="flex items-center justify-between">
-                    <span className=' md:text-lg font-medium'>{question}</span>
+                    <span className=' md:text-lg font-medium  lowercase '>{question}</span>
                     <span>{isOpen ? <img src={minus} alt='minus' className=' w-6' /> : <img src={plus} alt='plus' />}</span>
                 </div>
             </button>
@@ -25,12 +25,13 @@ const FAQItem = ({ question, answer }) => {
 
 const FAQ = () => {
     const faqs = [
-        { question: 'Is there a free trial available?', answer: 'Yes, you can try us for free for 30 days. If you want, we’ll provide you with a free, personalized 30-minute onboarding call to get you up and running as soon as possible.' },
-        { question: 'Can I change my plan later?', answer: 'Improved access, better engagement, better retention, improved performance and better quality of content are some of the benefits of digital learning solutions.' },
-        { question: 'What is your cancellation policy?', answer: 'Smart classrooms, virtual classrooms, massive open online courses, game based learning and adaptive learning are some of the common examples of digital learning solutions.' },
-        { question: 'Can other info be added to an invoice?', answer: 'Improved access, better engagement, better retention, improved performance and better quality of content are some of the benefits of digital learning solutions.' },
-        { question: 'How does billing work?', answer: 'Improved access, better engagement, better retention, improved performance and better quality of content are some of the benefits of digital learning solutions.' },
-        { question: 'How do I change my account email?', answer: 'Improved access, better engagement, better retention, improved performance and better quality of content are some of the benefits of digital learning solutions.' },
+        { question: ' HOW MANY BOOKLETS ARE THERE IN THE STUDY MATERIAL?', answer: 'Fourteen booklets include all the subjects required for a student to crack any English literature examination, including TGTIPGTIGATE| MA Entrance and UGC-NET.' },
+        { question: ' WILL THIS STUDY MATERIAL WORK FOR ME?', answer: 'The material has worked for many students. Indeed, it will work for you. The power of bold steps and dedication will ultimately help you crack any examination. Everything starts with you, and I will be there to guide you in the right direction through WhatsApp Messages, Calls, and any medium you want me to connect with you.' },
+        { question: 'HOW IS YOUR STUDY MATERIAL DIFFERENT FROM OTHER COURSES AND LECTURES?', answer: 'I prepared this material with the mindset of helping the students crack the exam as soon as possible. Why waste time listening to the boring lectures? The rules of 21st Century studies have changed a long time back. We cannot remain stick to traditional learning. The study material belongs to the 21st Century smart students.' },
+        { question: 'WHAT EXTRA WILL I GET AFTER PURCHASING THE STUDY MATERIAL?', answer: 'I will personally solve your queries and guide you in the right direction. I am 24x7 available to the students on WhatsApp. Last week I spent 35+ hours solving the doubts and guiding them with the best of my experience. Also, you will get access to unlimited flashcards that you can play around with to digest the subject.' },
+        { question: 'WHEN BE THE STUDY MATERIAL WILL DISPATCH?', answer: 'As soon as you place the order, we will dispatch the order. We will also share with you the tracking ID. You can use it to track your consignment.' },
+        { question: 'DOES THIS STUDY MATERIAL INCLUDE PAPER 1 ALSO?', answer: 'No, the study material only includes Paper 2, English Literature.' },
+        { question: 'I NEED TO BUY THE STUDY MATERIAL. WHERE SHOULD I MAKE THE PAYMENT?', answer: 'Please WhatsApp us: +91 78914-10858' },
     ];
 
     return (

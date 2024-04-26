@@ -3,7 +3,7 @@ import shipping from "../assests/images/shipping.png";
 import degree from "../assests/images/degree.png";
 import check from "../assests/images/check2.png";
 import card_01 from "../assests/images/card_01.png";
-import student from "../assests/images/student.png";
+import student from "../assests/images/student01.png";
 import video from "../assests/images/video.png";
 import yt from "../assests/images/yt.png";
 import graduate from "../assests/images/graduate.png";
@@ -25,6 +25,7 @@ import section2_02 from "../assests/images/section2_02.jpg"
 import language from "../assests/images/language.jpeg"
 import british from "../assests/images/british.jpeg"
 import dictionary from "../assests/images/dictionary.jpeg"
+import modalbg from "../assests/images/modalbg.jpg";
 
 
 
@@ -36,6 +37,7 @@ import Modal from "./Modal";
 import CountingAnimation from "./CountingAnimation";
 import HallofFrame from "./HallofFrame";
 import Comments from "./Comments";
+import FirstModal from "./FirstModal";
 import { useState, useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -43,9 +45,10 @@ import "slick-carousel/slick/slick-theme.css";
 const Home = () => {
     // const [count, setCount] = useState(0);
     const [isOpen, setIsOpen] = useState(false);
+    const [show, setShow] = useState(false);
     useEffect(() => {
         const timeoutId = setTimeout(() => {
-            setIsOpen(true);
+            setShow(true);
         }, 15000);
         return () => clearTimeout(timeoutId);
     }, []);
@@ -77,19 +80,19 @@ const Home = () => {
             const reverseDate1 = new Date(currentTime);
             const hour = reverseDate1.getHours().toString().padStart(2, '0');
             let temp = 0;
-            if(hour < 6){
-                 temp = 0;
-            }else if( hour > 6 && hour < 12){
-                 temp = 6;
-            }else if( hour > 12 && hour < 18){
-                 temp = 12;
-            }else if( hour > 18 && hour < 24){
-                 temp = 18;
+            if (hour < 6) {
+                temp = 0;
+            } else if (hour > 6 && hour < 12) {
+                temp = 6;
+            } else if (hour > 12 && hour < 18) {
+                temp = 12;
+            } else if (hour > 18 && hour < 24) {
+                temp = 18;
             }
             const reverseDate = new Date(currentTime - temp * 60 * 60 * 1000);
-            const hours = (Math.abs(reverseDate.getHours().toString().padStart(2, '0') -6)).toString().padStart(2, '0');
-            const minutes =( Math.abs(reverseDate.getMinutes().toString().padStart(2, '0') - 60)).toString().padStart(2, '0');
-            const seconds =( Math.abs(reverseDate.getSeconds().toString().padStart(2, '0') - 60)).toString().padStart(2, '0');
+            const hours = (Math.abs(reverseDate.getHours().toString().padStart(2, '0') - 6)).toString().padStart(2, '0');
+            const minutes = (Math.abs(reverseDate.getMinutes().toString().padStart(2, '0') - 60)).toString().padStart(2, '0');
+            const seconds = (Math.abs(reverseDate.getSeconds().toString().padStart(2, '0') - 60)).toString().padStart(2, '0');
             setReverseTime(`${hours}:${minutes}:${seconds}`);
         };
 
@@ -126,26 +129,26 @@ const Home = () => {
                         <div className=" grid lg:grid-cols-4 grid-cols-2 mt-8 gap-4 text-sm text-center">
                             <div className=" flex flex-row items-center mr-2 ">
                                 <img src={video1} alt="shipping" className=" w-9 mr-2" />
-                                <h2 className=" text-gray-800 font-bold text-md text-start">Get Access of Video Lecture </h2>
+                                <h2 className=" text-gray-800 font-bold text-md text-start"><span className=" text-[#ed653b]">Get Access</span><span> of Video Lecture</span></h2>
                             </div>
                             <div className=" flex flex-row items-center">
                                 <img src={pg} alt="shipping" className=" w-9 mr-2" />
-                                <h2 className=" text-gray-800 font-bold text-md  text-start">Everyday 1:1 Personal Guidance</h2>
+                                <h2 className=" text-gray-800 font-bold text-md  text-start"><span className=" text-[#ed653b]">Everyday 1:1</span><span> Personal Guidance</span></h2>
                             </div>
                             <div className=" flex flex-row items-center ">
                                 <img src={shipping} alt="shipping" className=" w-9 mr-2" />
-                                <h2 className=" text-gray-800 font-bold text-md text-start">Free Booklets Shipping</h2>
+                                <h2 className=" text-gray-800 font-bold text-md text-start"><span className=" text-[#ed653b]">Free Booklets</span><span> Shipping</span></h2>
                             </div>
                             <div className=" flex flex-row items-center ">
                                 <img src={degree} alt="degree" className=" w-9 mr-2" />
-                                <h2 className=" text-gray-800 font-bold text-md text-start"><span className=" text-[#ed653b]">5165+</span><span>Enrolled Students</span></h2>
+                                <h2 className=" text-gray-800 font-bold text-md text-start"><span className=" text-[#ed653b]">5165+</span><span> Enrolled Students</span></h2>
                             </div>
                         </div>
                         <div className=" text-center lg:text-start mt-10">
-                            <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-64 rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300 " onClick={() => {
+                            <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-48 rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300 " onClick={() => {
                                 setIsOpen(true);
                                 handleClick();
-                            }}>Get Your Study Material
+                            }}>ENROLL NOW
                             </button>
                         </div>
                     </div>
@@ -190,7 +193,7 @@ const Home = () => {
                                 <h3 className=" text-lg font-semibold">Uncertain directional confusion</h3>
                             </div>
                             <div className=" lg:text-center mt-8 text-center">
-                                <button className=" text-xl text-white bg-[#ed653b] h-[60px] font-medium w-64 rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300  " onClick={() => { setIsOpen(true) }}>Get Your Study Material</button>
+                                <button className=" text-xl text-white bg-[#ed653b] h-[52px] font-medium w-52 rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300  " onClick={() => { setIsOpen(true) }}>ENROLL NOW</button>
                             </div>
                         </div>
                     </div>
@@ -204,7 +207,7 @@ const Home = () => {
                 <div className=" grid grid-cols-2 gap-y-5 lg:gap-y-0 lg:grid-cols-4 mt-10">
                     <div className=" mx-auto text-center">
                         <div className=" rounded-full h-[120px] w-[120px] flex justify-center items-center bg-[#EAEAEA] border-b-2 border-gray-200 shadow-2xl transition-all ease-linear duration-400 hover:scale-105 mx-auto ">
-                            <img src={student} alt="student" className="mx-auto" />
+                            <img src={student} alt="student" className="mx-auto w-[60%]" />
                         </div>
 
                         <CountingAnimation targetCount={5165} />
@@ -223,7 +226,7 @@ const Home = () => {
                             <img src={yt} alt="yt" className="mx-auto" />
                         </div>
 
-                        <CountingAnimation targetCount={51} value="subscriber" />
+                        <CountingAnimation targetCount={3} value="subscriber" />
                         <h1 className=" text-gray-900 text-lg font-medium mt-2">YouTube Subscribers</h1>
                     </div>
                     <div className=" mx-auto text-center">
@@ -294,7 +297,7 @@ const Home = () => {
                             <h3 className=" text-[#FB0A0A] font-bold"><span>{reverseTime}</span>  Hours Left at this price</h3>
                         </div>
                         <div className=" text-center mt-5">
-                            <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-64 rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300  " onClick={() => { setIsOpen(true) }}>Get Your Study Material</button>
+                            <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-64 rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300  " onClick={() => { setIsOpen(true) }}>ENROLL NOW</button>
                         </div>
                     </div>
 
@@ -346,7 +349,7 @@ const Home = () => {
                             <h3 className=" text-[#FB0A0A] font-bold"><span>{reverseTime}</span>  Hours Left at this price</h3>
                         </div>
                         <div className=" text-center mt-5">
-                            <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-64 rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300 " onClick={() => { setIsOpen(true) }}>Get Your Study Material</button>
+                            <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-64 rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300 " onClick={() => { setIsOpen(true) }}>ENROLL NOW</button>
                         </div>
                     </div>
 
@@ -355,7 +358,8 @@ const Home = () => {
                         <div className=" bg-[#FFAA05] p-4  text-white text-center shadow-lg  rounded-xl">
                             <h1 className="text-[28px] font-bold">3000+ Topic-Wise MCQs for Practice</h1>
                         </div>
-                        <ul class=" list-decimal list-inside p-6 md:p-8 font-medium ">
+                        <h2 className=" text-center mt-10 text-cyan-600 text-lg font-semibold"><span className=" text-xl">* Already Included </span> in complete study material package</h2>
+                        <ul class=" list-decimal list-inside p-6 md:p-6 font-medium ">
                             <li class="mb-2 flex flex-row items-center">
                                 <img src={check} className=" w-6 mr-2" alt="check" />
                                 <h2>3000+ Topic-Wise MCQs</h2>
@@ -377,7 +381,7 @@ const Home = () => {
                                 <h2>Free delivery at your doorstep</h2>
                             </li>
                         </ul>
-                        <div className=" flex flex-row items-center justify-center mt-5">
+                        <div className=" flex flex-row items-center justify-center mt-10">
                             <img src={rupee} alt="rupee" className=" w-6" />
                             <h1 className=" text-[22px] font-bold mr-4">1100/-</h1>
                             <h1 className=" text-[18px] font-bold mr-4 line-through">1499/</h1>
@@ -388,7 +392,7 @@ const Home = () => {
                             <h3 className=" text-[#FB0A0A] font-bold"><span>{reverseTime}</span>  Hours Left at this price</h3>
                         </div>
                         <div className=" text-center">
-                            <button className="mt-6 text-xl text-white bg-[#ed653b] h-12 font-medium  w-64 rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300 " onClick={() => { setIsOpen(true) }}>Get Your Study Material</button>
+                            <button className="mt-6 text-xl text-white bg-[#ed653b] h-12 font-medium  w-64 rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300 " onClick={() => { setIsOpen(true) }}>ENROLL NOW</button>
                         </div>
                     </div>
 
@@ -398,6 +402,7 @@ const Home = () => {
                         <div className=" bg-[#FFAA05] p-4 text-white text-center shadow-lg  rounded-xl">
                             <h1 className="text-[28px] font-bold">Ultimate 1000+ Literary Theory MCQs</h1>
                         </div>
+                        <h2 className=" text-center mt-10 text-cyan-600 text-lg font-semibold"><span className=" text-xl">* Already Included </span> in complete study material package</h2>
                         <ul class=" list-decimal list-inside p-6 md:p-8 font-medium">
                             <li class="mb-2 flex flex-row items-center">
                                 <img src={check} className=" w-6 mr-2" alt="check" />
@@ -435,7 +440,7 @@ const Home = () => {
                             <h3 className=" text-[#FB0A0A] font-bold"><span>{reverseTime}</span>  Hours Left at this price</h3>
                         </div>
                         <div className=" text-center mt-5">
-                            <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-64 rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300  " onClick={() => { setIsOpen(true) }}>Get Your Study Material</button>
+                            <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-64 rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300  " onClick={() => { setIsOpen(true) }}>ENROLL NOW</button>
                         </div>
                     </div>
                 </div>
@@ -450,32 +455,32 @@ const Home = () => {
                     <div className="">
                         <img src={youtube} alt="youtube" className=" mx-auto w-24 h-24" />
                         <h1 className=" text-center font-semibold text-gray-800 text-xl mt-3">SMART</h1>
-                        <h2 className=" text-justify w-[90%] md:w-[70%] lg:w-[50%] font-medium text-gray-800 mx-auto mt-3">Now, no need to listen to boring lectures, and give pain to your hands</h2>
+                        <h2 className=" text-center w-[90%] md:w-[70%] lg:w-[50%] font-medium text-gray-800 mx-auto mt-3">Now, no need to listen to boring lectures, and give pain to your hands</h2>
                     </div>
                     <div className="">
                         <img src={group} alt="group" className=" mx-auto w-28 h-24" />
                         <h1 className=" text-center font-semibold text-gray-800 text-xl mt-3">SAVES TIME</h1>
-                        <h2 className=" text-justify w-[90%] md:w-[70%]  lg:w-[50%] font-medium text-gray-800 mx-auto mt-3">The material covers everything that might take a student minimum of eight months to write it down</h2>
+                        <h2 className=" text-center w-[90%] md:w-[70%]  lg:w-[50%] font-medium text-gray-800 mx-auto mt-3">The material covers everything that might take a student minimum of eight months to write it down</h2>
                     </div>
                     <div className="">
                         <img src={cash} alt="cash" className=" mx-auto w-24 h-24" />
                         <h1 className=" text-center font-semibold text-gray-800 text-xl pt-3">SAVES MONEY</h1>
-                        <h2 className=" text-justify w-[90%] md:w-[70%]   lg:w-[50%] font-medium text-gray-800 mx-auto mt-3">Why pay the fees of coaching again and again for the same lectures? This material comes with lifetime validity</h2>
+                        <h2 className=" text-center w-[90%] md:w-[70%]   lg:w-[50%] font-medium text-gray-800 mx-auto mt-3">Why pay the fees of coaching again and again for the same lectures? This material comes with lifetime validity</h2>
                     </div>
                     <div className=" my-auto">
                         <img src={Vector} alt="vector" className=" mx-auto w-24 h-24" />
                         <h1 className=" text-center font-semibold text-gray-800 text-xl mt-3">VIDEO LECTURES</h1>
-                        <h2 className=" text-justify w-[90%] md:w-[70%]  lg:w-[50%] font-medium text-gray-800 mx-auto mt-3">Unable to understand any topic? Simply WhatsApp us and we will update a video in our private playlist for premium user</h2>
+                        <h2 className=" text-center w-[90%] md:w-[70%]  lg:w-[50%] font-medium text-gray-800 mx-auto mt-3">Unable to understand any topic? Simply WhatsApp us and we will update a video in our private playlist for premium user</h2>
                     </div>
                     <div className="">
                         <img src={guidance} alt="guidance" className=" mx-auto w-24 h-24" />
                         <h1 className=" text-center font-semibold text-gray-800 text-xl mt-3">GUIDANCE</h1>
-                        <h2 className=" text-justify  w-[90%] md:w-[70%] lg:w-[50%] font-medium text-gray-800 mx-auto mt-3">Recorded Video Sessions on often-asked doubts: quick to guide the students in the right direction</h2>
+                        <h2 className=" text-center  w-[90%] md:w-[70%] lg:w-[50%] font-medium text-gray-800 mx-auto mt-3">Recorded Video Sessions on often-asked doubts: quick to guide the students in the right direction</h2>
                     </div>
                     <div className="">
                         <img src={productivity} alt="productivity" className=" mx-auto w-24 h-24" />
                         <h1 className=" text-center font-semibold text-gray-800 text-xl mt-3">PRODUCTIVITY</h1>
-                        <h2 className=" text-justify w-[90%] md:w-[70%]   lg:w-[50%] font-medium text-gray-800 mx-auto mt-3">Featured on top 10 Success Websites, Nakul Grover is considered Zen of productivity. He knows how to amplify your growth.</h2>
+                        <h2 className=" text-center w-[90%] md:w-[70%]   lg:w-[50%] font-medium text-gray-800 mx-auto mt-3">Featured on top 10 Success Websites, Nakul Grover is considered Zen of productivity. He knows how to amplify your growth.</h2>
                     </div>
                 </div>
             </div>
@@ -488,10 +493,10 @@ const Home = () => {
                     </div>
                     <div className=" col-span-4 lg:p-8 mt-10 lg:mt-0 lg:text-start">
                         <h1 className=" text-2xl lg:text-[40px] font-semibold lg:font-bold text-gray-700">Why You Should Enroll With Us?</h1>
-                        <h2 className=" md:text-lg font-medium text-justify  mt-5">If you commit to our books & courses for a couple of months, you will see a drastic improvement in your preparation. I’ve worked very hard to organize the course in the best possible way. </h2>
-                        <h2 className=" md:text-lg  text-justify font-medium  mt-5">The study material works 100%, only if you let it work. All you just have to do is spend a few hours every day reading the material. If any doubt pops up, I’m just a call away. Call me and I will let you in the right direction.</h2>
+                        <h2 className=" md:text-lg font-base text-justify  mt-5">If you commit to our books & courses for a couple of months, you will see a drastic improvement in your preparation. I’ve worked very hard to organize the course in the best possible way. </h2>
+                        <h2 className=" md:text-lg  text-justify font-base  mt-5">The study material works 100%, only if you let it work. All you just have to do is spend a few hours every day reading the material. If any doubt pops up, I’m just a call away. Call me and I will let you in the right direction.</h2>
                         <div className=" text-center lg:text-start">
-                            <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-64 rounded-md shadow-2xl mt-5 hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300 " onClick={() => { setIsOpen(true) }}>Get Your Study Material</button>
+                            <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-64 rounded-md shadow-2xl mt-5 hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300 " onClick={() => { setIsOpen(true) }}>ENROLL NOW</button>
                         </div>
                     </div>
                 </div>
@@ -515,7 +520,7 @@ const Home = () => {
                             <li>and above all guidance to stay in the right direction.</li>
                         </ul>
                         <div className=" text-center lg:text-end ">
-                            <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-64 rounded-md shadow-2xl mt-5 " onClick={() => { setIsOpen(true) }}>Get Your Study Material</button>
+                            <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-64 rounded-md shadow-2xl mt-5 " onClick={() => { setIsOpen(true) }}>ENROLL NOW</button>
                         </div>
                     </div>
                     <div className="col-span-4">
@@ -558,7 +563,7 @@ const Home = () => {
                     </div>
                 </div>
                 <div className=" text-center ">
-                    <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-64 rounded-md shadow-2xl mt-10 hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300 " onClick={() => { setIsOpen(true) }}>Get Your Study Material</button>
+                    <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-64 rounded-md shadow-2xl mt-10 hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300 " onClick={() => { setIsOpen(true) }}>ENROLL NOW</button>
                 </div>
                 <h2 className=" md:text-lg font-semibold mt-4 text-center">This study material includes everything you have ever desired</h2>
             </div>
@@ -583,8 +588,8 @@ const Home = () => {
             <Testimonial />
 
             {isOpen && (
-                <div className="fixed inset-0  z-[99999] flex items-center justify-center backdrop-blur-sm">
-                    <div className={`fixed inset-0 bg-white flex lg:max-w-[44%] lg:max-h-[90%] my-auto mx-auto items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none shadow-2xl  transition-all ease-linear duration-700 ${isOpen ? 'opacity-100' : 'opacity-0'}`}>
+                <div className="fixed inset-0  z-[99999] flex items-center justify-center backdrop-blur-sm animate-slideFromRight">
+                    <div className={`fixed inset-0 bg-white flex lg:max-w-[44%] lg:max-h-[90%] my-auto mx-auto items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none shadow-2xl  transition-all ease-linear duration-400 ${isOpen ? 'opacity-100' : 'opacity-0'}`}>
                         <div className="relative mx-auto  ">
                             <Modal />
                         </div>
@@ -600,8 +605,41 @@ const Home = () => {
             <Comments />
             <Footer handleClick={handleClick} />
 
+            {/* <div className="fixed inset-0 flex items-center justify-center z-50 backdrop-filter backdrop-blur-sm font-inter  shadow-2xl">
+                <div className="bg-cover bg-center rounded-lg w-[95%] lg:w-[40%] lg:h-1/2 " style={{ backgroundImage: `url(${modalbg})` }}>
+                    <div className=" bg-black bg-opacity-60 h-full flex items-center justify-center">
+                        <div className=" p-8 text-white text-lg ">
+                            <h2 className=" text-center text-4xl font-bold leading-normal">5 hours left, Hurry up before its too late!</h2>
+                            <div className=" lg:text-center mt-8 text-center">
+                                <button className=" text-xl text-white bg-[#ed653b] h-[50px] font-medium w-48 rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300  ">ENROLL NOW</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> */}
 
-            
+
+            {show &&
+                (
+                    <div className="fixed inset-0  z-[99999] flex items-center justify-center backdrop-blur-sm animate-slideFromLeft">
+                        <div className={`fixed inset-0 bg-white flex lg:max-w-[42%] lg:max-h-[90%] my-auto mx-auto items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none shadow-2xl  transition-all ease-linear duration-700 ${show ? 'opacity-100' : 'opacity-0'}`}>
+                            <div className="relative mx-auto my-auto">
+                                <FirstModal />
+                                <div className=" lg:text-center text-center">
+                                    <button className=" text-xl text-white bg-[#ed653b] h-[50px] font-medium w-56 rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300  " onClick={()=>{
+                                        setShow(false);
+                                        setIsOpen(true);
+                                    }}>ENROLL NOW</button>
+                                </div>
+                            </div>
+                            <button className=" absolute top-0 right-0 m-3 text-gray-500 hover:text-gray-900 " onClick={()=>{setShow(false)}}>
+                                <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                )}
         </div>
     )
 }

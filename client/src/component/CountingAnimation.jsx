@@ -27,7 +27,7 @@ const CountingAnimation = ({ targetCount, value }) =>{
          }
          {
            value === ("subscriber") && (
-            <span className="font-extrabold">K</span>
+            <span className="font-extrabold">M</span>
            )
          }
          <span className="font-extrabold">+</span>

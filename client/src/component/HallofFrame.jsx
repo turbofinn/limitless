@@ -37,7 +37,7 @@ const HallofFrame = () => {
         {
             name: "GURUNATH PATRO",
             img: gurunath,
-            category: "JRF",
+            category: "Odissa Government Lecturer",
             percentage: "76.45%",
             university: "Savitribai Phule Pune University",
             address: "Orissa",
@@ -49,7 +49,7 @@ const HallofFrame = () => {
             category: "NET",
             percentage: "76.45%",
             university: "Savitribai Phule Pune University",
-            address: "Maharashtra",
+            address: "Rajasthan",
 
         },
         {

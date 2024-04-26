@@ -1,57 +1,91 @@
 import phone from "../assests/images/phone.png";
 import query from "../assests/images/query.png";
 import { useState, useEffect } from "react";
+import { LineWave, TailSpin } from 'react-loader-spinner'
+// import { useNavigate } from "react-router-dom";
+import moment from "moment";
 import axios from 'axios';
 const Modal = () => {
+    // const Navigate=useNavigate();
     const [firstName, setFirstName] = useState('');
     const [Email, setEmail] = useState('');
     const [Phone, setPhone] = useState('');
     const [msg, setMsg] = useState('');
     const [packages, setPackage] = useState('');
+    const [loader, setLoader] = useState(false);
 
     // useEffect(()=>{
     // },[]);
+    const [values, setValues] = useState({
+        name: '',
+        phoneNumber: '',
+        email: '',
+        selectOption: 'Select your preferred package',
+    });
+    const [errors, setErrors] = useState({});
+    const handleChange = (event) => {
+        setValues({
+            ...values,
+            [event.target.name]: event.target.value,
+        });
+    };
+    const validate = (values) => {
+        let errors = {};
+
+        if (!values.name) {
+            errors.name = 'Name is required';
+        }
+
+        if (!values.phoneNumber) {
+            errors.phoneNumber = 'Phone number is required';
+        } else if (!(/^\d{10}$/.test(values.phoneNumber))) {
+            errors.phoneNumber = 'Phone number is invalid';
+        }
+
+        if (!values.email) {
+            errors.email = 'Email address is required';
+        } else if (!(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email))) {
+            errors.email = 'Please enter valid Email';
+        }
+        if ((values.selectOption === 'Select your preferred package')) {
+            errors.selectOption = 'Please select an option';
+        }
+
+        // if (Object.keys(errors).length === 0) { // Check if errors object is empty
+        //     submitHandler();
+        // }
+        return errors;
+    };
+    const handleSubmit = () => {
+        // event.preventDefault();
+        setErrors(validate(values));
+    };
     const submitHandler = async (e) => {
+
+        setLoader(true);
+        // console.log("time", timeDifferenceHours);
         console.log("fn", firstName);
         console.log("email", Email);
         console.log("phone", Phone);
-        e.preventDefault();
-        // try {
-        //     console.log("aaya");
-        //     const response = await axios.post('https://www.zohoapis.in/crm/v6/Leads', {
-        //         "data": [
-        //             {
-        //                 Last_Name: "rweew",
-        //                 First_Name: "firstName",
-        //                 Email: "akash@gmail.com"
-        //             }
-        //         ],
-        //         trigger: ["approval", "workflow", "blueprint"]
-        //     }, {
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //             'Authorization': 'Zoho-oauthtoken 1000.3cbae78b78ba973b3d473292fe3132f0.f76c69d158253eeab75a8cbb040387a7'
-        //         }
-        //     });
-
-        //     console.log(response.data);
-        //     setFirstName('');
-        //     setEmail('');
-        //     setPhone('');
-
-        // } catch (error) {
-        //     console.error('Error:', error);
-        // }
+        // e.preventDefault();
+        setErrors(validate(values));
         try {
             const response = await axios.post('http://localhost:5000/submit-form', {
-                Last_Name: "",
-                First_Name: firstName,
+                Last_Name: firstName.split(' ')[1] ? firstName.split(' ')[1] : firstName.split(' ')[0],
+                First_Name: firstName.split(' ')[1] ?firstName.split(' ')[0] :'',
                 Email: Email,
-                Phone:Phone,
-                Description:msg,
-                Fax:packages
+                Phone: Phone,
+                Description: msg,
+                packages: packages
+            }).then((res) => {
+                console.log("res", res);
+                if (res.data.code === 1001) {
+                    // Navigate('/https://limitlessliterature.com/');
+                    setLoader(false);
+                    window.location.replace('https://limitlessliterature.com/');
+                }
             });
-            console.log('Response:', response.data);
+            // console.log('Response:', response.data);
             setFirstName('');
             setEmail('');
             setPhone('');
@@ -79,10 +113,14 @@ const Modal = () => {
                                 <path d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z" />
                             </svg>
                         </div>
-                        <input type="text" id="email-address-icon" class="bg-gray-50 border-2 border-[#ed653b] text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-3 text-gray-700 placeholder-gray-500  " placeholder="Name" onChange={(e) => {
-                            setFirstName(e.target.value)
-                        }} value={firstName} />
+                        <input type="text" id="email-address-icon" class="bg-gray-50 border-2 border-[#ed653b] text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-3 text-gray-700 placeholder-gray-500  " name="name" placeholder="Name" onChange={
+                            (e) => {
+                                setFirstName(e.target.value);
+                                handleChange(e);
+                            }} value={firstName} />
                     </div>
+                    {errors.name && <p>{errors.name}</p>}
+
                     <div class="relative mt-3">
                         <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
                             <svg class="w-4 h-4 text-gray-700 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
@@ -90,35 +128,69 @@ const Modal = () => {
                                 <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z" />
                             </svg>
                         </div>
-                        <input type="text" id="email-address-icon" class="bg-gray-50 border-2 border-[#ed653b] text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  text-gray-700 placeholder-gray-500 ps-10 p-3 " placeholder="E-mail" onChange={(e) => { setEmail(e.target.value) }} value={Email} />
+                        <input type="text" id="email-address-icon" class="bg-gray-50 border-2 border-[#ed653b] text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  text-gray-700 placeholder-gray-500 ps-10 p-3 " name="email" placeholder="E-mail" onChange={(e) => {
+                            setEmail(e.target.value);
+                            handleChange(e);
+                        }} value={Email} />
                     </div>
+                    {errors.email && <p>{errors.email}</p>}
+
                     <div class="relative mt-3 ">
                         <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
                             <img src={phone} alt="phone" className=" w-4" />
                         </div>
-                        <input type="text" id="email-address-icon" class="bg-gray-50 border-2 border-[#ed653b] text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-3 placeholder-gray-500 " placeholder="Phone" onChange={(e) => { setPhone(e.target.value) }} value={Phone} />
+                        <input type="text" id="email-address-icon" class="bg-gray-50 border-2 border-[#ed653b] text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-3 placeholder-gray-500 " placeholder="Phone" name="phoneNumber" onChange={(e) => {
+                            setPhone(e.target.value);
+                            handleChange(e)
+                        }} value={Phone} />
                     </div>
+                    {errors.phoneNumber && <p>{errors.phoneNumber}</p>}
 
-
-                    <select id="countries" class="bg-gray-50 border-2 border-[#ed653b] mt-3 text-gray-500 text-sm rounded-lg block w-full p-3 " onChange={(e)=>{setPackage(e.target.value)}} >
+                    <select id="countries" class="bg-gray-50 border-2 border-[#ed653b] mt-3 text-gray-500 text-sm rounded-lg block w-full p-3 " onChange={
+                        (e) => {
+                            setPackage(e.target.value);
+                            handleChange(e)
+                        }} name="selectOption" value={packages} >
 
                         <option className=" text-indigo-600 font-medium ">Select your preferred package</option>
-                        <option className=" text-indigo-600 font-medium ">Paper 1 UGC NET</option>
-                        <option className=" text-indigo-600 font-medium ">Paper 2 English Literature</option>
-                        <option className=" text-indigo-600 font-medium ">3000+ Topic-Wise MCQs for Practice</option>
-                        <option className=" text-indigo-600 font-medium ">Ultimate 1000+ Literary Theory MCQs</option>
+                        <option className=" text-indigo-600 font-medium ">Paper 1 UGC NET(&#x20B9; 8900)</option>
+                        <option className=" text-indigo-600 font-medium ">Paper 2 English Literature(&#x20B9; 4399)</option>
+                        <option className=" text-indigo-600 font-medium ">3000+ Topic-Wise MCQs for Practice(&#x20B9; 1100)</option>
+                        <option className=" text-indigo-600 font-medium ">Ultimate 1000+ Literary Theory MCQs(&#x20B9; 799)</option>
                     </select>
-
+                    {errors.selectOption && <p>{errors.selectOption}</p>}
                     <div class="relative mt-3 ">
-                        <textarea type="text" id="email-address-icon" class="bg-gray-50 border-2 border-[#ed653b] text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 h-[150px] lg:h-[110px] placeholder-gray-500 " placeholder="Ask your query here..." onChange={(e)=>{setMsg(e.target.value)}} value={msg} />
+                        <textarea type="text" id="email-address-icon" class="bg-gray-50 border-2 border-[#ed653b] text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 h-[150px] lg:h-[110px] placeholder-gray-500 " placeholder="Ask your query here..." onChange={(e) => { setMsg(e.target.value) }} value={msg} />
                     </div>
                 </form>
-                <div className=" text-center mt-6 lg:mt-3">
-                    <button className=" px-8 py-3 bg-[#ed653b] rounded-md  text-white" onClick={submitHandler}>Submit</button>
-                </div>
+                <div className=" text-center mt-6 lg:mt-8">
+                    <a className=" px-8 py-3 bg-[#ed653b] rounded-md text-lg hover:cursor-pointer  text-white"
+                        onClick={submitHandler}
+                    // onClick={handleSubmit}
+                    >submit</a>
 
+                </div>
+                {loader && (<div className="fixed inset-0  z-[99999] flex items-center justify-center backdrop-blur-sm ">
+                    <div className={`fixed inset-0 bg-white flex max-w-[8%] lg:max-h-[8%] my-auto mx-auto items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none shadow-2xl ${loader ? 'opacity-100' : 'opacity-0'} bg-opacity-0`}>
+                        <div className="relative mx-auto  ">
+                            <TailSpin
+                                visible={true}
+                                height="50"
+                                width="50"
+                                color="#FB0A0A"
+                                ariaLabel="tail-spin-loading"
+                                radius="2"
+                                wrapperStyle={{}}
+                                wrapperClass=""
+                            />
+                        </div>
+
+                    </div>
+                </div>)}
 
             </div>
+
+
         </div>
     )
 }
