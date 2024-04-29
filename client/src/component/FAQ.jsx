@@ -25,13 +25,13 @@ const FAQItem = ({ question, answer }) => {
 
 const FAQ = () => {
     const faqs = [
-        { question: 'How many booklets are there in the study material?', answer: 'Fourteen booklets include all the subjects required for a student to crack any English literature examination, including TGTIPGTIGATE| MA Entrance and UGC-NET.' },
-        { question: 'Will this study material work for me?', answer: 'The material has worked for many students. Indeed, it will work for you. The power of bold steps and dedication will ultimately help you crack any examination. Everything starts with you, and I will be there to guide you in the right direction through WhatsApp Messages, Calls, and any medium you want me to connect with you.' },
-        { question: 'How is your study material different from other courses and lectures?', answer: 'I prepared this material with the mindset of helping the students crack the exam as soon as possible. Why waste time listening to the boring lectures? The rules of 21st Century studies have changed a long time back. We cannot remain stick to traditional learning. The study material belongs to the 21st Century smart students.' },
-        { question: 'What extra will i get after purchasing the study material?', answer: 'I will personally solve your queries and guide you in the right direction. I am 24x7 available to the students on WhatsApp. Last week I spent 35+ hours solving the doubts and guiding them with the best of my experience. Also, you will get access to unlimited flashcards that you can play around with to digest the subject.' },
-        { question: 'When be the study material will dispatch?', answer: 'As soon as you place the order, we will dispatch the order. We will also share with you the tracking ID. You can use it to track your consignment.' },
-        { question: 'Does this study material include paper 1 also?', answer: 'No, the study material only includes Paper 2, English Literature.' },
-        { question: 'I need to buy the study material. where should i make the payment?', answer: 'Please WhatsApp us: +91 78914-10858' },
+        { question: 'How many booklets are there in the Course?', answer: 'Fourteen booklets include all the subjects required for a student to crack any English literature examination, including TGTIPGTIGATE| MA Entrance and UGC-NET.' },
+        { question: 'Will this Course work for me?', answer: 'The material has worked for many students. Indeed, it will work for you. The power of bold steps and dedication will ultimately help you crack any examination. Everything starts with you, and I will be there to guide you in the right direction through WhatsApp Messages, Calls, and any medium you want me to connect with you.' },
+        { question: 'How is your Course different from other courses and lectures?', answer: 'I prepared this material with the mindset of helping the students crack the exam as soon as possible. Why waste time listening to the boring lectures? The rules of 21st Century studies have changed a long time back. We cannot remain stick to traditional learning. The Course belongs to the 21st Century smart students.' },
+        { question: 'What extra will i get after purchasing the Course?', answer: 'I will personally solve your queries and guide you in the right direction. I am 24x7 available to the students on WhatsApp. Last week I spent 35+ hours solving the doubts and guiding them with the best of my experience. Also, you will get access to unlimited flashcards that you can play around with to digest the subject.' },
+        { question: 'When be the Course will dispatch?', answer: 'As soon as you place the order, we will dispatch the order. We will also share with you the tracking ID. You can use it to track your consignment.' },
+        { question: 'Does this Course include paper 1 also?', answer: 'No, the Course only includes Paper 2, English Literature.' },
+        { question: 'I need to buy the Course. where should i make the payment?', answer: 'Please WhatsApp us: +91 7891410858' },
     ];
 
     return (
