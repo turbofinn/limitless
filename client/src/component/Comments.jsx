@@ -137,7 +137,7 @@ const Comments = () => {
 
     const [likedIndex, setlikedIndex] = useState([]);
 
-    console.log("likedIndex", likedIndex)
+    // console.log("likedIndex", likedIndex)
     return (
         <div className="">
             <h1 className=" text-center mt-10 text-3xl lg:text-[40px] font-semibold lg:font-bold text-gray-800 leading-10 my-5" >Students Feedback</h1>

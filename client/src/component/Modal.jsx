@@ -30,7 +30,7 @@ const Modal = (props) => {
         });
     };
     const validate = () => {
-        if ((firstName.length === 0) || (!(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(Email))) || (!(/^\d{10}$/.test(Phone))) || packages.length === 0) {
+        if ((firstName.length === 0) || (!(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(Email))) || (!(/^\d{10}$/.test(Phone))) || (packages.length === 0 || packages === 'Select your preferred package *' )) {
             return true;
         } else {
             return false;

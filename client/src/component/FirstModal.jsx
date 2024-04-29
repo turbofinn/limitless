@@ -34,7 +34,7 @@ const FirstModal = () => {
     }, []); // Empty dependency array ensures the effect runs only once
     return (
         <div>
-            <div className=" p-10 font-inter my-auto">
+            <div className=" p-8 font-inter my-auto">
                 <img src={modalbg} alt=" modalbg" className=" lg:w-[90%] mx-auto" />
                 <h2 className=" text-center text-3xl lg:text-4xl font-extrabold mt-10 lg:mt-0">Hurry up before it's too late!</h2>
                 <div className=" flex flex-row items-center justify-center mt-7 lg:mt-5">

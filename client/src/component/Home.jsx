@@ -25,6 +25,7 @@ import section2_02 from "../assests/images/section2_02.jpg"
 import language from "../assests/images/language.jpeg"
 import british from "../assests/images/british.jpeg"
 import dictionary from "../assests/images/dictionary.jpeg"
+import Book from "../assests/images/book.png"
 import modalbg from "../assests/images/modalbg.jpg";
 
 
@@ -38,22 +39,24 @@ import CountingAnimation from "./CountingAnimation";
 import HallofFrame from "./HallofFrame";
 import Comments from "./Comments";
 import FirstModal from "./FirstModal";
+import Packages from "./Packages";
 import { useState, useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 const Home = (props) => {
-    // const [count, setCount] = useState(0);
 
     const [isOpen, setIsOpen] = useState(false);
     const [show, setShow] = useState(false);
     const [permission, setpermission] = useState(false);
+    
+
     useEffect(() => {
         const timeoutId = setTimeout(() => {
             if (!permission) {
                 setShow(true);
             }
-        }, 15000);
+        }, 30000);
         return () => clearTimeout(timeoutId);
     }, [permission]);
     const handleClick = (height) => {
@@ -63,6 +66,13 @@ const Home = (props) => {
             behavior: 'smooth'
         });
     };
+
+    useEffect(()=>{
+        if(localStorage.getItem("packages") == "true" && localStorage.getItem("packages")!== undefined && localStorage.getItem("packages")!== null){
+             handleClick(1550);
+             localStorage.setItem("packages",false);
+        }
+    },[])
     const [timeLeft, setTimeLeft] = useState(5 * 60 * 60); // 5 hours in seconds
     useEffect(() => {
         if (!timeLeft) return;
@@ -123,29 +133,30 @@ const Home = (props) => {
     return (
         <div className={`font-inter ${isOpen ? " opacity-100" : ""}`}>
             <Navbar handleClick={handleClick} />
+            {/* <Packages packages = {packages} setPackages={setPackages}/> */}
             <div className=" w-[95%] mx-auto ">
                 {/* section 1 */}
                 <div className=" lg:grid lg:grid-cols-11 lg:items-center mt-4 lg:mx-auto">
                     <div className=" lg:col-span-7 lg:max-w-[90%] lg:mx-auto text-justify lg:text-start animate-slideFromLeft ">
-                        <h1 className=" text-center lg:text-start text-3xl lg:text-[40px] font-semibold lg:font-bold text-gray-800 leading-10 mb-5" >UGC-NET English Literature Courses</h1>
-                        <h2 className=" text-lg lg:text-xl font-medium text-gray-800" >Join thousands of passionate learners conquering UGC-NET, GATE, CUET, and more. Unleash your potential, achieve academic success, and pave your path to a rewarding literary career.</h2>
-                        <h2 className=" text-lg lg:text-xl font-medium text-gray-800 mt-6" >Let’s embark on this transformative journey together!</h2>
-                        <div className=" grid lg:grid-cols-4 grid-cols-2 mt-8 gap-4 text-sm text-center">
+                        <h1 className=" text-center lg:text-start text-3xl lg:text-[40px] font-semibold lg:font-bold text-gray-800 leading-10 mb-5" >UGC-NET English Literature Study Material</h1>
+                        <h2 className=" text-lg lg:text-xl font-medium text-gray-800" >Apart from spending three years studying the subject, I spent another six months creating the exact course material that a student requires to study</h2>
+                        <h2 className=" text-lg lg:text-xl font-medium text-gray-800 mt-6" >Don't waste thousands of hours making notes get our study material!</h2>
+                        <div className=" grid lg:grid-cols-3 grid-cols-2 mt-8 gap-4 text-sm text-center">
                             <div className=" flex flex-row items-center mr-2 ">
                                 <img src={video1} alt="shipping" className=" w-9 mr-2" />
-                                <h2 className=" text-gray-800 font-bold text-md text-start"><span className=" text-[#ed653b]">Get Access</span><span> of Video Lecture</span></h2>
+                                <h2 className=" text-gray-800 font-bold text-md text-start"><span className=" text-[#ed653b]">14 Booklets</span><span> Included</span></h2>
                             </div>
-                            <div className=" flex flex-row items-center">
+                            {/* <div className=" flex flex-row items-center">
                                 <img src={pg} alt="shipping" className=" w-9 mr-2" />
                                 <h2 className=" text-gray-800 font-bold text-md  text-start"><span className=" text-[#ed653b]">Everyday 1:1</span><span> Personal Guidance</span></h2>
-                            </div>
+                            </div> */}
                             <div className=" flex flex-row items-center ">
                                 <img src={shipping} alt="shipping" className=" w-9 mr-2" />
-                                <h2 className=" text-gray-800 font-bold text-md text-start"><span className=" text-[#ed653b]">Free Booklets</span><span> Shipping</span></h2>
+                                <h2 className=" text-gray-800 font-bold text-md text-start"><span className=" text-[#ed653b]">Free Booklets</span><span> Shiping</span></h2>
                             </div>
                             <div className=" flex flex-row items-center ">
                                 <img src={degree} alt="degree" className=" w-9 mr-2" />
-                                <h2 className=" text-gray-800 font-bold text-md text-start"><span className=" text-[#ed653b]">5165+</span><span> Enrolled Students</span></h2>
+                                <h2 className=" text-gray-800 font-bold text-md text-start"><span className=" text-[#ed653b]">5165</span><span> Sold Study Material</span></h2>
                             </div>
                         </div>
                         <div className=" text-center lg:text-start mt-10">
@@ -153,7 +164,7 @@ const Home = (props) => {
                                 setIsOpen(true);
                                 handleClick();
                                 setpermission(true);
-                            }}>Enroll now for courses
+                            }}>Get Our Study Material
                             </button>
                         </div>
                     </div>
@@ -166,13 +177,13 @@ const Home = (props) => {
                 {/* section 2 */}
 
                 <div className=" bg-[#ECEFEE] p-4 lg:p-10 rounded-2xl shadow-2xl mb-10 animate-slideFromLeft">
-                    <h1 className=" text-center text-2xl lg:text-[40px] font-semibold lg:font-bold text-gray-800 leading-10 mb-5">Books & Courses that Guarantees UGC-NET Certificate</h1>
+                    <h1 className=" text-center text-2xl lg:text-[40px] font-semibold lg:font-bold text-gray-800 leading-10 mb-5">Why you need our study material to crack UGC NET?</h1>
                     <div className=" lg:grid lg:grid-cols-2 gap-x-2 mt-10">
                         <div className=" w-[100%] md:w-[65%] lg:w-[95%] mx-auto">
                             <Slider {...settings} className=" mx-auto">
                                 <img src={language} alt="card" className=" shadow-xl shadow-black rounded-md mx-auto my-auto h-[270px] md:h-[320px] lg:h-[350px]" />
-                                <img src={british} alt="card" className=" shadow-xl rounded-md mx-auto my-auto h-[270px] md:h-[320px] lg:h-[350px]" />
-                                <img src={dictionary} alt="card" className=" shadow-xl rounded-md mx-auto my-auto h-[270px] md:h-[320px] lg:h-[350px]" />
+                                <img src={Book} alt="card" className=" shadow-xl rounded-md mx-auto my-auto h-[270px] md:h-[320px] lg:h-[350px]" />
+                                {/* <img src={dictionary} alt="card" className=" shadow-xl rounded-md mx-auto my-auto h-[270px] md:h-[320px] lg:h-[350px]" /> */}
                             </Slider>
                         </div>
                         <div className=" text-gray-600 md:max-w-[62%] lg:max-w-[100%] md:mx-auto mt-10 lg:mt-0 my-auto">
@@ -201,7 +212,7 @@ const Home = (props) => {
                                 <button className=" text-xl text-white bg-[#ed653b] h-[52px] font-medium w-[302px] rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300  " onClick={() => {
                                     setIsOpen(true);
                                     setpermission(true);
-                                }}>Enroll now for courses</button>
+                                }}>Get Our Study Material</button>
                             </div>
                         </div>
                     </div>
@@ -252,7 +263,7 @@ const Home = (props) => {
             {/* section 4 */}
             <div className=" w-[95%] mx-auto mt-20 lg:mt-28">
 
-                <h1 className="  text-center text-3xl lg:text-[40px] font-semibold lg:font-bold text-gray-800 leading-10 mb-5">Our Bestselling Packages</h1>
+                <h1 className="  text-center text-3xl lg:text-[40px] font-semibold lg:font-bold text-gray-800 leading-10 mb-5">Our Bestselling Study Material</h1>
                 <h2 className="text-[18px] lg:text-[24px] font-semibold text-gray-700 md:max-w-[80%] lg:max-w-[60%] mx-auto text-center ">Take UGC-NET English Literature Prep To The Next Level</h2>
 
                 <div className=" md:grid md:grid-cols-1 lg:grid-cols-2 lg:gap-x-0 lg:gap-y-10 mt-16 space-y-8 lg:space-y-0">
@@ -308,7 +319,7 @@ const Home = (props) => {
                             <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-[302px] rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300  " onClick={() => {
                                 setIsOpen(true);
                                 setpermission(true);
-                            }}>Enroll now for courses</button>
+                            }}>Get Our Study Material</button>
                         </div>
                     </div>
 
@@ -363,7 +374,7 @@ const Home = (props) => {
                             <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-[302px] rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300 " onClick={() => {
                                 setIsOpen(true);
                                 setpermission(true);
-                            }}>Enroll now for courses</button>
+                            }}>Get Our Study Material</button>
                         </div>
                     </div>
 
@@ -409,7 +420,7 @@ const Home = (props) => {
                             <button className="mt-6 text-xl text-white bg-[#ed653b] h-12 font-medium w-[302px] rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300 " onClick={() => {
                                 setIsOpen(true);
                                 setpermission(true);
-                            }}>Enroll now for courses</button>
+                            }}>Get Our Study Material</button>
                         </div>
                     </div>
 
@@ -457,7 +468,7 @@ const Home = (props) => {
                             <h3 className=" text-[#FB0A0A] font-bold"><span>{reverseTime}</span>  Hours Left at this price</h3>
                         </div>
                         <div className=" text-center mt-5">
-                            <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-[302px] rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300  " onClick={() => { setIsOpen(true); setpermission(true); }}>Enroll now for courses</button>
+                            <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-[302px] rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300  " onClick={() => { setIsOpen(true); setpermission(true); }}>Get Our Study Material</button>
                         </div>
                     </div>
                 </div>
@@ -503,7 +514,7 @@ const Home = (props) => {
             </div>
 
             {/* section 6 */}
-            <div className=" bg-[#ECEFEE] p-8 rounded-2xl shadow-2xl mt-32 mb-10 max-w-[95%] mx-auto">
+            {/* <div className=" bg-[#ECEFEE] p-8 rounded-2xl shadow-2xl mt-32 mb-10 max-w-[95%] mx-auto">
                 <div className=" lg:grid lg:grid-cols-7">
                     <div className="col-span-3">
                         <img src={pic_02} alt=" pic_02" className=" mx-auto" />
@@ -513,11 +524,11 @@ const Home = (props) => {
                         <h2 className=" md:text-lg font-base text-justify  mt-5">If you commit to our books & courses for a couple of months, you will see a drastic improvement in your preparation. I’ve worked very hard to organize the course in the best possible way. </h2>
                         <h2 className=" md:text-lg  text-justify font-base  mt-5">The study material works 100%, only if you let it work. All you just have to do is spend a few hours every day reading the material. If any doubt pops up, I’m just a call away. Call me and I will let you in the right direction.</h2>
                         <div className=" text-center lg:text-start">
-                            <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-[302px] rounded-md shadow-2xl mt-5 hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300 " onClick={() => { setIsOpen(true); setpermission(true); }}>Enroll now for courses</button>
+                            <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-[302px] rounded-md shadow-2xl mt-5 hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300 " onClick={() => { setIsOpen(true); setpermission(true); }}>Get Our Study Material</button>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
 
             {/* section 7  */}
             <HallofFrame />
@@ -537,7 +548,7 @@ const Home = (props) => {
                             <li>and above all guidance to stay in the right direction.</li>
                         </ul>
                         <div className=" text-center lg:text-end ">
-                            <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-64 rounded-md shadow-2xl mt-5 " onClick={() => { setIsOpen(true) }}>Enroll now for courses</button>
+                            <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-64 rounded-md shadow-2xl mt-5 " onClick={() => { setIsOpen(true) }}>Get Our Study Material</button>
                         </div>
                     </div>
                     <div className="col-span-4">
@@ -549,8 +560,8 @@ const Home = (props) => {
 
 
             {/* section 8 */}
-            <div className=" p-8 rounded-2xl shadow-lg mt-4 mb-10 max-w-[95%] mx-auto">
-                <h1 className=" text-2xl text-center lg:text-[40px] font-semibold lg:font-bold text-gray-800">Exclusive Booklets for UGC-NET Exam</h1>
+            <div className=" p-8 rounded-2xl shadow-lg mt-4 mb-10 max-w-[95%] mx-auto font-inter">
+                <h1 className=" text-2xl text-center lg:text-[40px] font-semibold lg:font-bold text-gray-800">Books & study material that Guarantees UGC-NET Certificate</h1>
                 <div className=" grid grid-cols-1 lg:grid-cols-3 bg-[#FCE7E1] text-black p-8 mt-10 rounded-lg">
                     <div>
                         <ul className=" space-y-4 lg:space-y-6">
@@ -583,7 +594,7 @@ const Home = (props) => {
                     <button className=" text-xl text-white bg-[#ed653b] h-12 font-medium  w-[302px] rounded-md shadow-2xl mt-10 hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300 " onClick={() => {
                         setIsOpen(true);
                         setpermission(true);
-                    }}>Enroll now for courses</button>
+                    }}>Get Our Study Material</button>
                 </div>
                 <h2 className=" md:text-lg font-semibold mt-4 text-center">This study material includes everything you have ever desired</h2>
             </div>
@@ -631,7 +642,7 @@ const Home = (props) => {
                         <div className=" p-8 text-white text-lg ">
                             <h2 className=" text-center text-4xl font-bold leading-normal">5 hours left, Hurry up before its too late!</h2>
                             <div className=" lg:text-center mt-8 text-center">
-                                <button className=" text-xl text-white bg-[#ed653b] h-[50px] font-medium w-48 rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300  ">Enroll now for courses</button>
+                                <button className=" text-xl text-white bg-[#ed653b] h-[50px] font-medium w-48 rounded-md shadow-2xl hover:text-[#ed653b] hover:bg-white hover:border-2 hover:border-[#ed653b] transition-all ease-linear duration-300  ">Get Our Study Material</button>
                             </div>
                         </div>
                     </div>
@@ -650,7 +661,7 @@ const Home = (props) => {
                                         setShow(false);
                                         setIsOpen(true);
                                         setpermission(true);
-                                    }}>Enroll now for courses</button>
+                                    }}>Get Our Study Material</button>
                                 </div>
                             </div>
                             <button className=" absolute top-0 right-0 m-3 text-gray-500 hover:text-gray-900 " onClick={() => { setShow(false) }}>

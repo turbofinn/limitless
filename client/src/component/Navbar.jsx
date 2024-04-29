@@ -17,9 +17,9 @@ const Navbar = (props) => {
                         <div className="ml-4 flex items-center flex-wrap space-x-3 justify-end">
                             <a  className="text-lg font-medium py-2 text-[#ed653b] hover:border-b-2  hover:border-[#ed653b] px-4 cursor-pointer" onClick={()=>{props.handleClick(0)}}>Home</a>
                             <a className="text-lg font-medium py-2 text-black px-4 cursor-pointer" onClick={()=>{props.handleClick(1550)}}>Packages</a>
-                            <a className="text-lg font-medium py-2 text-black px-4 cursor-pointer" onClick={()=>{props.handleClick(2950)}}>Benefits</a>
-                            <a className="text-lg font-medium py-2 text-black px-4 cursor-pointer" onClick={()=>{props.handleClick(3800)}}>Why Us</a>
-                            <a className="text-lg font-medium py-2 text-black px-4 cursor-pointer" onClick={()=>{props.handleClick(6760)}}>FAQs</a>
+                            <a className="text-lg font-medium py-2 text-black px-4 cursor-pointer" onClick={()=>{props.handleClick(3050)}}>Benefits</a>
+                            <a className="text-lg font-medium py-2 text-black px-4 cursor-pointer" onClick={()=>{props.handleClick(5020)}}>Why Us</a>
+                            <a className="text-lg font-medium py-2 text-black px-4 cursor-pointer" onClick={()=>{props.handleClick(6300)}}>FAQs</a>
                         </div>
                     </div>
                     <div className="-mr-2 flex lg:hidden">
@@ -58,13 +58,13 @@ const Navbar = (props) => {
                     <a  className="text-lg font-medium py-2 text-[#ed653b] cursor-pointer px-4" onClick={()=>{
                         props.handleClick(0);
                         toggleMenu()}}>Home</a>
-                            <a className="text-lg font-medium py-2 text-black px-4 cursor-pointer" onClick={()=>{props.handleClick(2450);
+                            <a className="text-lg font-medium py-2 text-black px-4 cursor-pointer" onClick={()=>{props.handleClick(2400);
                             toggleMenu();}}>Packages</a>
-                            <a className="text-lg font-medium py-2 text-black px-4 cursor-pointer" onClick={()=>{props.handleClick(5100);
+                            <a className="text-lg font-medium py-2 text-black px-4 cursor-pointer" onClick={()=>{props.handleClick(5200);
                             toggleMenu();}}>Benefits</a>
-                            <a className="text-lg font-medium py-2 text-black px-4 cursor-pointer" onClick={()=>{props.handleClick(6350);
+                            <a className="text-lg font-medium py-2 text-black px-4 cursor-pointer" onClick={()=>{props.handleClick(8100);
                             toggleMenu();}}>Why Us</a>
-                            <a className="text-lg font-medium py-2 text-black px-4 cursor-pointer" onClick={()=>{props.handleClick(10400);
+                            <a className="text-lg font-medium py-2 text-black px-4 cursor-pointer" onClick={()=>{props.handleClick(9700);
                             toggleMenu();}}>FAQs</a>
                     </div>
                 </div>
