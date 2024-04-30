@@ -4,7 +4,9 @@ import Success from './component/Success';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import Packages from './component/Packages';
-
+import Benefits from './component/Banefits';
+import WhyUs from './component/WhyUs';
+import FAQroute from './component/FAQroute';
 function App() {
   function checkFormat(inputString) {
     const vowels = 'aeiou';
@@ -23,13 +25,6 @@ function App() {
 
     return true;
   }
-  
-  // const [packages, setPackages] = useState(false);
-  // useEffect(()=>{
-  //      const path = window.location.pathname;
-  //      console.log("path", path);
-  // },[])
-
   return (
     <div className="App">
       <BrowserRouter>
@@ -42,6 +37,9 @@ function App() {
             <Route path="/success" element={<Navigate to="/" replace />} />
           )}
           <Route path="/packages" element={<Packages/>} />
+          <Route path="/benefits" element={<Benefits/>} />
+          <Route path="/whyUs" element={<WhyUs/>} />
+          <Route path="/faq" element={<FAQroute/>} />
         </Routes>
       </BrowserRouter>
     </div>

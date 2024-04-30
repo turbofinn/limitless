@@ -5,21 +5,25 @@ const Navbar = (props) => {
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
-    
+
     return (
         <nav className="bg-white sticky top-0 z-[9999] shadow-sm  font-inter ">
             <div className="max-w-8xl mx-auto px-4 sm:px-4 lg:px-6">
                 <div className="flex items-center justify-between h-16 md:h-20">
                     <div className="flex items-center">
-                            <img src={logo} alt='logo' className=' w-[150px] lg:w-[200px] ' />
+                        <img src={logo} alt='logo' className=' w-[150px] lg:w-[200px] ' />
                     </div>
                     <div className="hidden text-[#ed653b] lg:block ">
                         <div className="ml-4 flex items-center flex-wrap space-x-3 justify-end">
-                            <a  className="text-lg font-medium py-2 text-[#ed653b] hover:border-b-2  hover:border-[#ed653b] px-4 cursor-pointer" onClick={()=>{props.handleClick(0)}}>Home</a>
-                            <a className="text-lg font-medium py-2 text-black px-4 cursor-pointer" onClick={()=>{props.handleClick(1550)}}>Packages</a>
-                            <a className="text-lg font-medium py-2 text-black px-4 cursor-pointer" onClick={()=>{props.handleClick(3050)}}>Benefits</a>
-                            <a className="text-lg font-medium py-2 text-black px-4 cursor-pointer" onClick={()=>{props.handleClick(5020)}}>Why Us</a>
-                            <a className="text-lg font-medium py-2 text-black px-4 cursor-pointer" onClick={()=>{props.handleClick(6300)}}>FAQs</a>
+                            <a href='/' className="text-lg font-medium py-2 text-[#ed653b] hover:border-b-2  hover:border-[#ed653b] px-4 cursor-pointer" onClick={() => {
+                                props.handleClick(0)
+                            }}>Home</a>
+                            <a href='/packages' className="text-lg font-medium py-2 text-black px-4 cursor-pointer" onClick={() => {
+                                props.handleClick(1550);
+                            }}>Packages</a>
+                            <a href='/benefits' className="text-lg font-medium py-2 text-black px-4 cursor-pointer" onClick={() => { props.handleClick(3050) }}>Benefits</a>
+                            <a href='/whyus' className="text-lg font-medium py-2 text-black px-4 cursor-pointer" onClick={() => { props.handleClick(5020) }}>Why Us</a>
+                            <a href='/faq' className="text-lg font-medium py-2 text-black px-4 cursor-pointer" onClick={() => { props.handleClick(6300) }}>FAQs</a>
                         </div>
                     </div>
                     <div className="-mr-2 flex lg:hidden">
@@ -55,17 +59,26 @@ const Navbar = (props) => {
             <div className={`${isOpen ? 'block' : 'hidden'} lg:hidden `}>
                 <div className="text-white ">
                     <div className=" flex flex-col pl-4 ">
-                    <a  className="text-lg font-medium py-2 text-[#ed653b] cursor-pointer px-4" onClick={()=>{
-                        props.handleClick(0);
-                        toggleMenu()}}>Home</a>
-                            <a className="text-lg font-medium py-2 text-black px-4 cursor-pointer" onClick={()=>{props.handleClick(2400);
-                            toggleMenu();}}>Packages</a>
-                            <a className="text-lg font-medium py-2 text-black px-4 cursor-pointer" onClick={()=>{props.handleClick(5200);
-                            toggleMenu();}}>Benefits</a>
-                            <a className="text-lg font-medium py-2 text-black px-4 cursor-pointer" onClick={()=>{props.handleClick(8100);
-                            toggleMenu();}}>Why Us</a>
-                            <a className="text-lg font-medium py-2 text-black px-4 cursor-pointer" onClick={()=>{props.handleClick(9700);
-                            toggleMenu();}}>FAQs</a>
+                        <a href='/' className="text-lg font-medium py-2 text-[#ed653b] cursor-pointer px-4" onClick={() => {
+                            props.handleClick(0);
+                            toggleMenu()
+                        }}>Home</a>
+                        <a href='/packages' className="text-lg font-medium py-2 text-black px-4 cursor-pointer" onClick={() => {
+                            props.handleClick(2400);
+                            toggleMenu();
+                        }}>Packages</a>
+                        <a href='/benefits' className="text-lg font-medium py-2 text-black px-4 cursor-pointer" onClick={() => {
+                            props.handleClick(5200);
+                            toggleMenu();
+                        }}>Benefits</a>
+                        <a href='/whyus' className="text-lg font-medium py-2 text-black px-4 cursor-pointer" onClick={() => {
+                            props.handleClick(8100);
+                            toggleMenu();
+                        }}>Why Us</a>
+                        <a href='/faq' className="text-lg font-medium py-2 text-black px-4 cursor-pointer" onClick={() => {
+                            props.handleClick(9700);
+                            toggleMenu();
+                        }}>FAQs</a>
                     </div>
                 </div>
             </div>

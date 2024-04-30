@@ -40,7 +40,7 @@ import HallofFrame from "./HallofFrame";
 import Comments from "./Comments";
 import FirstModal from "./FirstModal";
 import Packages from "./Packages";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef  } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -49,7 +49,10 @@ const Home = (props) => {
     const [isOpen, setIsOpen] = useState(false);
     const [show, setShow] = useState(false);
     const [permission, setpermission] = useState(false);
-    
+    const myRef = useRef(null);
+    const scrollToRef = () => {
+        myRef.current.scrollIntoView({ behavior: 'smooth' });
+    };
 
     useEffect(() => {
         const timeoutId = setTimeout(() => {
@@ -132,14 +135,14 @@ const Home = (props) => {
     }
     return (
         <div className={`font-inter ${isOpen ? " opacity-100" : ""}`}>
-            <Navbar handleClick={handleClick} />
+            <Navbar handleClick={handleClick}/>
             {/* <Packages packages = {packages} setPackages={setPackages}/> */}
             <div className=" w-[95%] mx-auto ">
                 {/* section 1 */}
                 <div className=" lg:grid lg:grid-cols-11 lg:items-center mt-4 lg:mx-auto">
                     <div className=" lg:col-span-7 lg:max-w-[90%] lg:mx-auto text-justify lg:text-start animate-slideFromLeft ">
                         <h1 className=" text-center lg:text-start text-3xl lg:text-[40px] font-semibold lg:font-bold text-gray-800 leading-10 mb-5" >UGC-NET English Literature Study Material</h1>
-                        <h2 className=" text-lg lg:text-xl font-medium text-gray-800" >Apart from spending three years studying the subject, I spent another six months creating the exact course material that a student requires to study</h2>
+                        <h2 className=" text-lg lg:text-xl font-medium text-gray-800" >Apart from spending<span className=" font-bold lg:font-extrabold"> three years</span> studying the subject, I spent another<span className=" font-bold lg:font-extrabold"> six months</span> creating the exact course material that a student requires to study</h2>
                         <h2 className=" text-lg lg:text-xl font-medium text-gray-800 mt-6" >Don't waste thousands of hours making notes get our study material!</h2>
                         <div className=" grid lg:grid-cols-3 grid-cols-2 mt-8 gap-4 text-sm text-center">
                             <div className=" flex flex-row items-center mr-2 ">
@@ -156,7 +159,7 @@ const Home = (props) => {
                             </div>
                             <div className=" flex flex-row items-center ">
                                 <img src={degree} alt="degree" className=" w-9 mr-2" />
-                                <h2 className=" text-gray-800 font-bold text-md text-start"><span className=" text-[#ed653b]">5165</span><span> Sold Study Material</span></h2>
+                                <h2 className=" text-gray-800 font-bold text-md text-start"><span className=" text-[#ed653b]">5165+</span><span> Study Material Sold</span></h2>
                             </div>
                         </div>
                         <div className=" text-center lg:text-start mt-10">
@@ -261,7 +264,7 @@ const Home = (props) => {
             </div>
 
             {/* section 4 */}
-            <div className=" w-[95%] mx-auto mt-20 lg:mt-28">
+            <div className=" w-[95%] mx-auto mt-20 lg:mt-28"  ref={myRef}>
 
                 <h1 className="  text-center text-3xl lg:text-[40px] font-semibold lg:font-bold text-gray-800 leading-10 mb-5">Our Bestselling Study Material</h1>
                 <h2 className="text-[18px] lg:text-[24px] font-semibold text-gray-700 md:max-w-[80%] lg:max-w-[60%] mx-auto text-center ">Take UGC-NET English Literature Prep To The Next Level</h2>

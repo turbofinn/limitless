@@ -140,7 +140,7 @@ const Comments = () => {
     // console.log("likedIndex", likedIndex)
     return (
         <div className="">
-            <h1 className=" text-center mt-10 text-3xl lg:text-[40px] font-semibold lg:font-bold text-gray-800 leading-10 my-5" >Students Feedback</h1>
+            <h1 className=" text-center mt-10 text-3xl lg:text-[40px] font-semibold lg:font-bold text-gray-800 leading-10 my-5" >Student's Feedback</h1>
 
             <div class=" mx-auto max-w-screen-xl mt-5 p-4">
                 {
