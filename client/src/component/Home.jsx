@@ -27,6 +27,9 @@ import british from "../assests/images/british.jpeg"
 import dictionary from "../assests/images/dictionary.jpeg"
 import Book from "../assests/images/book.png"
 import modalbg from "../assests/images/modalbg.jpg";
+import whatsaApp from "../assests/images/whatsapp.png";
+import whatsappwhite from "../assests/images/whatsappwhite.png";
+import whatsappwhite01 from "../assests/images/whatsappwhite01.png";
 
 
 
@@ -40,7 +43,7 @@ import HallofFrame from "./HallofFrame";
 import Comments from "./Comments";
 import FirstModal from "./FirstModal";
 import Packages from "./Packages";
-import { useState, useEffect, useRef  } from "react";
+import { useState, useEffect, useRef } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -49,6 +52,7 @@ const Home = (props) => {
     const [isOpen, setIsOpen] = useState(false);
     const [show, setShow] = useState(false);
     const [permission, setpermission] = useState(false);
+    const [AppOpen, setAppOpen] = useState(false);
     const myRef = useRef(null);
     const scrollToRef = () => {
         myRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -70,12 +74,12 @@ const Home = (props) => {
         });
     };
 
-    useEffect(()=>{
-        if(localStorage.getItem("packages") == "true" && localStorage.getItem("packages")!== undefined && localStorage.getItem("packages")!== null){
-             handleClick(1550);
-             localStorage.setItem("packages",false);
+    useEffect(() => {
+        if (localStorage.getItem("packages") == "true" && localStorage.getItem("packages") !== undefined && localStorage.getItem("packages") !== null) {
+            handleClick(1550);
+            localStorage.setItem("packages", false);
         }
-    },[])
+    }, [])
     const [timeLeft, setTimeLeft] = useState(5 * 60 * 60); // 5 hours in seconds
     useEffect(() => {
         if (!timeLeft) return;
@@ -135,7 +139,44 @@ const Home = (props) => {
     }
     return (
         <div className={`font-inter ${isOpen ? " opacity-100" : ""}`}>
-            <Navbar handleClick={handleClick}/>
+
+
+            <div className=" relative">
+
+                <a className=" fixed z-[99999] bottom-8 right-3 hover:cursor-pointer" onClick={  ()=>{
+                    setAppOpen(true);
+                    setpermission(true);
+                    }} > <img src={whatsaApp} alt=" whatsapp" className=" w-16 lg:w-16 bg-[#25d366] rounded-full p-2" />
+                </a>
+
+                {AppOpen && (<div className="fixed inset-0  z-[99999]  animate-slideFromDown">
+                    <div className={` fixed inset-0 flex w-[80%] h-[40%] lg:w-[30%] lg:h-[50%] rounded-3xl overflow-x-hidden overflow-y-auto  shadow-2xl  transition-all ease-linear duration-400 top-[50%] left-[5%] lg:left-[60%] lg:top-[40%] bg-gray-50`}>
+                        <div className="relative mx-auto">
+                            <div className=" bg-[#25d366] h-[25%] flex flex-row items-center justify-start px-6">
+                                <img src={whatsappwhite01} alt="whatsappwhite01" className=" w-8" />
+                                <p className=" text-white text-xl font-semibold ml-5">WhatsApp</p>
+                            </div>
+                            <div class="p-5 w-[90%] text-black bg-white relative before:absolute before:content-[''] before:w-3 before:h-3 before:bg-white border border-gray-200 before:rotate-45 before:border before:-z-10 before:border-gray-200 shadow-lg before:-left-2 before:bottom-5 ml-3 before:shadow-2xl rounded-3xl mt-4 text-base">
+                                <p>Hi, I'm Nakul. I would be pleased to reply to your whatsApp message. Let me know your query.</p>
+                            </div>
+                            <div className=" flex flex-row bg-[#25d366] lg:w-[43%]  mx-auto rounded-full justify-between items-center px-2 py-1 absolute bottom-2 right-2 cursor-pointer " onClick={() => {
+                                window.open("https://wa.me/917891410858?text=Hi%20there!%20%F0%9F%93%9A%20Aspiring%20to%20excel%20in%20English%20Literature%20exams%20and%20in%20need%20of%20the%20right%20course.%20Could%20you%20share%20the%20brochure%20and%20other%20relevant%20information?", '_blank'); 
+                            }}>
+                                <p className=" text-white pl-3">WhatsApp</p>
+                                <img src={whatsappwhite} alt="whatsappwhite" className=" pl-4 lg:pl-0" />
+                            </div>
+                        </div>
+                        <button className=" absolute top-2 right-2 m-3 text-white rounded-full bg-gray-900 p-2 bg-opacity-40 " onClick={()=>{setAppOpen(false);}} >
+                            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>)}
+            </div>
+
+
+            <Navbar handleClick={handleClick} />
             {/* <Packages packages = {packages} setPackages={setPackages}/> */}
             <div className=" w-[95%] mx-auto ">
                 {/* section 1 */}
@@ -180,7 +221,7 @@ const Home = (props) => {
                 {/* section 2 */}
 
                 <div className=" bg-[#ECEFEE] p-4 lg:p-10 rounded-2xl shadow-2xl mb-10 animate-slideFromLeft">
-                    <h1 className=" text-center text-2xl lg:text-[40px] font-semibold lg:font-bold text-gray-800 leading-10 mb-5">Why you need our study material to crack UGC NET?</h1>
+                    <h1 className=" text-center text-2xl lg:text-[40px] font-semibold lg:font-bold text-gray-800 leading-10 mb-5">Why do you need our study material to crack UGC NET?</h1>
                     <div className=" lg:grid lg:grid-cols-2 gap-x-2 mt-10">
                         <div className=" w-[100%] md:w-[65%] lg:w-[95%] mx-auto">
                             <Slider {...settings} className=" mx-auto">
@@ -264,7 +305,7 @@ const Home = (props) => {
             </div>
 
             {/* section 4 */}
-            <div className=" w-[95%] mx-auto mt-20 lg:mt-28"  ref={myRef}>
+            <div className=" w-[95%] mx-auto mt-20 lg:mt-28" ref={myRef}>
 
                 <h1 className="  text-center text-3xl lg:text-[40px] font-semibold lg:font-bold text-gray-800 leading-10 mb-5">Our Bestselling Study Material</h1>
                 <h2 className="text-[18px] lg:text-[24px] font-semibold text-gray-700 md:max-w-[80%] lg:max-w-[60%] mx-auto text-center ">Take UGC-NET English Literature Prep To The Next Level</h2>

@@ -154,8 +154,8 @@ const Modal = (props) => {
                         }} name="selectOption" value={packages} >
 
                         <option className=" text-indigo-600 font-medium ">Select your preferred package *</option>
-                        <option className=" text-indigo-600 font-medium ">Paper 1 UGC NET(&#x20B9; 8900)</option>
-                        <option className=" text-indigo-600 font-medium ">Paper 2 English Literature(&#x20B9; 4399)</option>
+                        <option className=" text-indigo-600 font-medium ">Paper 1 English Literature(&#x20B9; 4399)</option>
+                        <option className=" text-indigo-600 font-medium ">Paper 2 UGC NET(&#x20B9; 8900)</option>
                         <option className=" text-indigo-600 font-medium ">3000+ Topic-Wise MCQs for Practice(&#x20B9; 1100)</option>
                         <option className=" text-indigo-600 font-medium ">Ultimate 1000+ Literary Theory MCQs(&#x20B9; 799)</option>
                     </select>
